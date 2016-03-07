@@ -19,4 +19,6 @@ class IssueObject: BaseObject {
     var isBookmarked:Bool = false
     var isPublic:Bool = false
     var userCount:Int = 0
+    var firstSeen:String = ""
+    var lastSeen:String = ""
 }

@@ -14,6 +14,7 @@ class EventCell: UITableViewCell {
     let titleLabel = UILabel()
     let detailLabel = UILabel()
     let flagLabel = UILabel()
+    let timeLabel = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,6 +22,7 @@ class EventCell: UITableViewCell {
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(detailLabel)
         self.contentView.addSubview(flagLabel)
+        self.contentView.addSubview(timeLabel)
     }
     
     override func layoutSubviews() {
@@ -58,6 +60,16 @@ class EventCell: UITableViewCell {
         flagLabel.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(detailLabel.snp_bottom).offset(10)
             make.left.equalTo(detailLabel.snp_left)
+            make.right.equalTo(self.contentView.snp_right).offset(-5)
+            make.height.equalTo(11)
+        }
+        
+        timeLabel.numberOfLines = 1
+        timeLabel.font = UIFont.systemFontOfSize(10)
+        timeLabel.textColor = UIColor(rgba: Color.FontLightGray)
+        timeLabel.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(flagLabel.snp_bottom).offset(10)
+            make.left.equalTo(flagLabel.snp_left)
             make.right.equalTo(self.contentView.snp_right).offset(-5)
             make.height.equalTo(11)
         }

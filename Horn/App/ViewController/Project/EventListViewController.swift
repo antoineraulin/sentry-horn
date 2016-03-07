@@ -35,7 +35,7 @@ class EventListViewController: BaseListViewController {
     
     override func initController() {
         super.initController()
-        cellHeight = 70
+        cellHeight = 90
         reuseIdentifier = "events_identifier"
     }
     
@@ -45,6 +45,7 @@ class EventListViewController: BaseListViewController {
         cell.titleLabel.text = _viewModel.titleAtIndexPath(indexPath)
         cell.detailLabel.text = _viewModel.detailAtIndexPath(indexPath)
         cell.flagLabel.text = _viewModel.flagAtIndexPath(indexPath)
+        cell.timeLabel.text = _viewModel.timeAtIndexPath(indexPath)
         cell.levelView.backgroundColor = UIColor(rgba:_viewModel.levelColorAtIndexPath(indexPath))
         return cell
     }

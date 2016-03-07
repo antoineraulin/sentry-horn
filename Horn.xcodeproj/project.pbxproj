@@ -17,6 +17,8 @@
 		E4A5A7081C8D395A0012D37A /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7071C8D395A0012D37A /* EventListViewController.swift */; };
 		E4A5A70A1C8D396D0012D37A /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7091C8D396D0012D37A /* EventListViewModel.swift */; };
 		E4A5A7171C8D4FB40012D37A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7161C8D4FB40012D37A /* EventCell.swift */; };
+		E4A5A7191C8D99440012D37A /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7181C8D99440012D37A /* TimeAgo.swift */; };
+		E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A71A1C8D9A510012D37A /* Helper.swift */; };
 		E4B162A31C8C7D1D001E2A65 /* YSSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B162A21C8C7D1D001E2A65 /* YSSegmentedControl.swift */; };
 		E4B1A4B61C8ACE05007228D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4B51C8ACE05007228D5 /* AppDelegate.swift */; };
 		E4B1A4B81C8ACE05007228D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B1A4B71C8ACE05007228D5 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		E4A5A7071C8D395A0012D37A /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		E4A5A7091C8D396D0012D37A /* EventListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		E4A5A7161C8D4FB40012D37A /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		E4A5A7181C8D99440012D37A /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
+		E4A5A71A1C8D9A510012D37A /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		E4B162A21C8C7D1D001E2A65 /* YSSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSSegmentedControl.swift; sourceTree = "<group>"; };
 		E4B1A4B21C8ACE05007228D5 /* Horn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Horn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B1A4B51C8ACE05007228D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				E4B162A21C8C7D1D001E2A65 /* YSSegmentedControl.swift */,
+				E4A5A7181C8D99440012D37A /* TimeAgo.swift */,
 			);
 			path = 3rd;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				E4B1A4FB1C8ACF82007228D5 /* LogUtil.swift */,
 				E4B1A4FC1C8ACF82007228D5 /* SimulatorUtility.swift */,
 				E4B1A4FD1C8ACF82007228D5 /* UIColorExtension.swift */,
+				E4A5A71A1C8D9A510012D37A /* Helper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				E4B1A5671C8AD6A7007228D5 /* TagObject.swift in Sources */,
 				E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */,
 				E4B1A52C1C8ACF82007228D5 /* BaseListViewModel.swift in Sources */,
+				E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */,
 				E4331CF21C8C4EC0003AEAE9 /* ProjectListViewModel.swift in Sources */,
 				E4B1A5281C8ACF82007228D5 /* LogUtil.swift in Sources */,
 				E4A5A70A1C8D396D0012D37A /* EventListViewModel.swift in Sources */,
@@ -556,6 +563,7 @@
 				E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */,
 				E4B1A5291C8ACF82007228D5 /* SimulatorUtility.swift in Sources */,
 				E4B162A31C8C7D1D001E2A65 /* YSSegmentedControl.swift in Sources */,
+				E4A5A7191C8D99440012D37A /* TimeAgo.swift in Sources */,
 				E4331CF11C8C4EC0003AEAE9 /* ProjectListViewController.swift in Sources */,
 				E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */,
 				E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */,

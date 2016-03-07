@@ -57,6 +57,13 @@ class EventListViewModel: BaseListViewModel {
         return "Events:\(issue.count)  Users:\(issue.userCount)"
     }
     
+    func timeAtIndexPath(indexPath: NSIndexPath) -> String {
+        let issue: IssueObject = _dataArray[indexPath.row]
+        let firstSeen = timeAgoSince(Helper.stringToDate(issue.firstSeen))
+        let lastSeen = timeAgoSince(Helper.stringToDate(issue.lastSeen))
+        return "\(lastSeen) - \(firstSeen)"
+    }
+    
     func levelColorAtIndexPath(indexPath: NSIndexPath) -> String {
         let issue: IssueObject = _dataArray[indexPath.row]
         if issue.level == "error"{
