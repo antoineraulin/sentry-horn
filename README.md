@@ -1,2 +1,2 @@
 # Horn
-Swift based getsentry ios client
+Swift based getsentry/sentry ios client
