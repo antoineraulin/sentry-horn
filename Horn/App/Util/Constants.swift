@@ -27,10 +27,10 @@ struct Color {
 struct Constants {
     
     // Default Organization
-    static var CurrentOrganization = "YOUR_Organization"
+    static var CurrentOrganization = "sentry"
 
     // Default Host
-    static let Host = "YOUR_SENTRY_HOST"
+    static let Host = "http://sentry.gengmei.cc"
 
     struct Web {
         static let Root = "/"
