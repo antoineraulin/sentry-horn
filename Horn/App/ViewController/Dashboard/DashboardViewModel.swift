@@ -56,4 +56,9 @@ class DashboardViewModel: BaseListViewModel {
         return "[\(issue.project.name)] \(issue.culprit)"
     }
     
+    func permalinkAtIndexPath(indexPath: NSIndexPath) -> String {
+        let issue: IssueObject = _dataArray[indexPath.row]
+        return issue.permalink
+    }
+    
 }

@@ -50,6 +50,13 @@ class EventListViewController: BaseListViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        let event = EventDetailViewController()
+        event.url = _viewModel.permalinkAtIndexPath(indexPath)
+        self.pushViewController(event)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

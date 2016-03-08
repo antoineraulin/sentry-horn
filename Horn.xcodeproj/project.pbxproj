@@ -14,6 +14,8 @@
 		E4331CF61C8C4F33003AEAE9 /* OrgnaizationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF51C8C4F33003AEAE9 /* OrgnaizationListViewModel.swift */; };
 		E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */; };
 		E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */; };
+		E4961F8D1C8E790F0063FE86 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F8C1C8E790F0063FE86 /* EventDetailViewController.swift */; };
+		E4961F8F1C8E7B600063FE86 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F8E1C8E7B600063FE86 /* BaseWebViewController.swift */; };
 		E4A5A7081C8D395A0012D37A /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7071C8D395A0012D37A /* EventListViewController.swift */; };
 		E4A5A70A1C8D396D0012D37A /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7091C8D396D0012D37A /* EventListViewModel.swift */; };
 		E4A5A7171C8D4FB40012D37A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A5A7161C8D4FB40012D37A /* EventCell.swift */; };
@@ -70,6 +72,8 @@
 		E4331CF51C8C4F33003AEAE9 /* OrgnaizationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgnaizationListViewModel.swift; sourceTree = "<group>"; };
 		E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationObject.swift; sourceTree = "<group>"; };
 		E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueObject.swift; sourceTree = "<group>"; };
+		E4961F8C1C8E790F0063FE86 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		E4961F8E1C8E7B600063FE86 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		E4A5A7071C8D395A0012D37A /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		E4A5A7091C8D396D0012D37A /* EventListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		E4A5A7161C8D4FB40012D37A /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				E4331CF01C8C4EC0003AEAE9 /* ProjectListViewModel.swift */,
 				E4A5A7071C8D395A0012D37A /* EventListViewController.swift */,
 				E4A5A7091C8D396D0012D37A /* EventListViewModel.swift */,
+				E4961F8C1C8E790F0063FE86 /* EventDetailViewController.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				E4B1A5011C8ACF82007228D5 /* BaseListViewModel.swift */,
 				E4B1A5021C8ACF82007228D5 /* BaseViewController.swift */,
 				E4B1A5031C8ACF82007228D5 /* BaseViewModel.swift */,
+				E4961F8E1C8E7B600063FE86 /* BaseWebViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -550,6 +556,8 @@
 				E4B1A5671C8AD6A7007228D5 /* TagObject.swift in Sources */,
 				E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */,
 				E4B1A52C1C8ACF82007228D5 /* BaseListViewModel.swift in Sources */,
+				E4961F8D1C8E790F0063FE86 /* EventDetailViewController.swift in Sources */,
+				E4961F8F1C8E7B600063FE86 /* BaseWebViewController.swift in Sources */,
 				E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */,
 				E4331CF21C8C4EC0003AEAE9 /* ProjectListViewModel.swift in Sources */,
 				E4B1A5281C8ACF82007228D5 /* LogUtil.swift in Sources */,

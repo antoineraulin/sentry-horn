@@ -76,4 +76,9 @@ class EventListViewModel: BaseListViewModel {
             return Color.LevelDefault
         }
     }
+    
+    func permalinkAtIndexPath(indexPath: NSIndexPath) -> String {
+        let issue: IssueObject = _dataArray[indexPath.row]
+        return issue.permalink
+    }
 }

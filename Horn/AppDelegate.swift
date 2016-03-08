@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if cookieExpire{
             self.showLoginView()
         }else{
-            self.showOrgView()
+            self.showMainView()
         }
     }
     

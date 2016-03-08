@@ -21,4 +21,5 @@ class IssueObject: BaseObject {
     var userCount:Int = 0
     var firstSeen:String = ""
     var lastSeen:String = ""
+    var permalink:String = ""
 }

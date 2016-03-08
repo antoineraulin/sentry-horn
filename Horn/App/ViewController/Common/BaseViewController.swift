@@ -35,7 +35,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         // 必须要设置一个背景色，否则会出现tabbar残留的情况
-//        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.whiteColor()
 
         // Do any additional setup after loading the view.
         _viewWidth = self.view.frame.size.width
