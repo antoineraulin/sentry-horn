@@ -45,6 +45,7 @@ class BaseViewController: UIViewController {
     }
 
     func showLoading() {
+        self.view.hideToastActivity()
         self.view.makeToastActivity()
     }
 

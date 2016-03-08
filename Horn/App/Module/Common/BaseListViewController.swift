@@ -12,11 +12,13 @@ import MJRefresh
 
 class BaseListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+    var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
     var viewModel: BaseListViewModel = BaseListViewModel()
     
     var needHeaderRefresh = true
     var needFooterRefresh = true
+
+    var tableStyle:UITableViewStyle = UITableViewStyle.Plain
     var cellHeight = 60
     
     // 顶部刷新
@@ -32,7 +34,7 @@ class BaseListViewController: BaseViewController, UITableViewDataSource, UITable
         
         self.addKVO()
         
-        tableView.frame = self.view.bounds
+        tableView = UITableView(frame: self.view.bounds, style: tableStyle)
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -93,7 +95,7 @@ class BaseListViewController: BaseViewController, UITableViewDataSource, UITable
                 if (needFooterRefresh) {
                     tableView.mj_footer.hidden = true
                 }
-                toast("Nothing to show here, move along")
+                self.toast("Nothing to show here, move along")
             }
         } else if newValue == FetchDataResult.Failed.rawValue {
             self.toast("Get data failed")

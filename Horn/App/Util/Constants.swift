@@ -35,6 +35,7 @@ struct Constants {
     struct Web {
         static let Root = "/"
         static let Login = "/auth/login/sentry/"
+        static let Stats = "/organizations/\(CurrentOrganization)/stats/"
     }
     
     struct API {

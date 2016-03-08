@@ -16,7 +16,7 @@ class BaseWebViewController: BaseViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView.frame = self.view.bounds
+        webView.frame = CGRectMake(0, -40, _viewWidth, _viewHeight)
         webView.scrollView.contentSize.width = _viewWidth
         webView.delegate=self
         webView.scalesPageToFit = true;
@@ -35,7 +35,7 @@ class BaseWebViewController: BaseViewController, UIWebViewDelegate {
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         self.hideLoading()
         if (error?.code == NSURLErrorCancelled){
-            debugLog(webView.request?.URL?.absoluteString)
+            debugLog(self.webView.request?.URL?.absoluteString)
         }
     }
     

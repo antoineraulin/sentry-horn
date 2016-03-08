@@ -23,9 +23,15 @@ class MainViewController: UITabBarController,UITabBarControllerDelegate {
         dashboard.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named:"Dashboard"), selectedImage: UIImage(named: "DashboardFill"))
         
         let projects: ProjectListViewController = ProjectListViewController()
-        projects.tabBarItem = UITabBarItem(title: "Projects", image: UIImage(named:"Daily"), selectedImage: UIImage(named: "DailyFill"))
+        projects.tabBarItem = UITabBarItem(title: "Projects", image: UIImage(named:"Projects"), selectedImage: UIImage(named: "ProjectsFill"))
         
-        self.setViewControllers([dashboard,projects], animated: false)
+        let stats: StatsViewController = StatsViewController()
+        stats.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named:"Stats"), selectedImage: UIImage(named: "StatsFill"))
+        
+        let settings: SettingsViewController = SettingsViewController()
+        settings.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named:"Settings"), selectedImage: UIImage(named: "SettingsFill"))
+        
+        self.setViewControllers([dashboard,projects,stats,settings], animated: false)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleLoginExpired"), name: Constants.Notification.LoginExpired, object: nil)
         
