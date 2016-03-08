@@ -10,6 +10,13 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 
 ## How to use
 Simply replace the defaults with your own sentry server host and organization in Constants.swift
+```swift
+// Default Organization
+static var CurrentOrganization = "YOUR_Organization"
+
+// Default Host
+static let Host = "YOUR_SENTRY_HOST"
+```
 
 ## Contribute
 Is just the beginning of Horn, so anyone interested, feel free to fork it and pull requests to me. Let's make it more fun.
