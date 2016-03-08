@@ -4,7 +4,8 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 <img src="http://7xrnog.com1.z0.glb.clouddn.com/login.png" width="140" />
 <img src="http://7xrnog.com1.z0.glb.clouddn.com/dash.png" width="140" />
 <img src="http://7xrnog.com1.z0.glb.clouddn.com/project.png" width="140" />
-<img src="http://7xrnog.com1.z0.glb.clouddn.com/stats.png" width="140" />
+<img src="http://7xrnog.com1.z0.glb.clouddn.com/login.png" width="140" />
+<img src="http://7xrnog.com1.z0.glb.clouddn.com/event.png" width="140" />
 <img src="http://7xrnog.com1.z0.glb.clouddn.com/settings.png" width="140" />
 
 ## Feature List
