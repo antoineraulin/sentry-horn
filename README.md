@@ -9,11 +9,11 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 <img src="http://7xrnog.com1.z0.glb.clouddn.com/settings.png" width="140" />
 
 ## Feature List
-* Configure your own sentry server host and organization
-* Login to your own sentry server
-* Never miss any Assigned and New issues with Dashboard
-* All projects and teams listed
-* Track issues in a project and see more detail
+* Configure your own sentry server host and organization.
+* Login to your own sentry server.
+* Never miss any Assigned and New issues with Dashboard.
+* All projects and teams listed.
+* Track issues in a project and see more detail.
 
 ## How to use
 Simply replace the defaults with your own sentry server host and organization in Constants.swift
@@ -24,6 +24,8 @@ static var CurrentOrganization = "YOUR_Organization"
 // Default Host
 static let Host = "YOUR_SENTRY_HOST"
 ```
+## Sentry Version
+As far as I known it worked well with Sentry 8.0+, but it may compatible with lower version, so if anyone find that please let me know, thank you! 
 
 ## Contribute
 Is just the beginning of Horn, so anyone interested, feel free to fork it and pull requests to me. Let's make it more fun.
