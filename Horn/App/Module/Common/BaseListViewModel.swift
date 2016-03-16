@@ -29,6 +29,7 @@ class BaseListViewModel: BaseViewModel {
             
             if (self.remoteUrl == "") {
                 self.fetchDataResult.value = FetchDataResult.Failed.rawValue
+                return
             }
             
             if self.shouldClearDataForResponse(response) {
