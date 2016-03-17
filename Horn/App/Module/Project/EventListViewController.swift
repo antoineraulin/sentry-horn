@@ -23,10 +23,11 @@ class EventListViewController: BaseViewController, ListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EventListViewModel(project_slug: self.project_slug)
-        listComp = ListViewComponent(parent: self, viewModel: viewModel!)
+        listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
         listComp!.view.frame = self.view.bounds
         self.addChildViewController(listComp!)
         self.view.addSubview(listComp!.view)
+        listComp?.didMoveToParentViewController(self)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
@@ -48,10 +49,6 @@ class EventListViewController: BaseViewController, ListViewProtocol {
         let event = EventDetailViewController()
         event.url = (viewModel?.permalinkAtIndexPath(indexPath))!
         self.pushViewController(event)
-    }
-    
-    func updateOtherUI() {
-        
     }
     
     override func didReceiveMemoryWarning() {

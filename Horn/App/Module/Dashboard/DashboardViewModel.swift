@@ -15,6 +15,11 @@ class DashboardViewModel: BaseListViewModel {
     var per_page = 5
     var status = "unresolved"
     
+    convenience init(type:String){
+        self.init()
+        self.type = type
+    }
+    
     var _dataArray = Array<IssueObject>()
     override var dataArray: Array<BaseObject> {
         get {

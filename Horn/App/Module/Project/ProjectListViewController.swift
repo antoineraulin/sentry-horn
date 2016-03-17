@@ -21,11 +21,12 @@ class ProjectListViewController: BaseViewController, ListViewProtocol  {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = ProjectListViewModel()
-        listComp = ListViewComponent(parent: self, viewModel: viewModel!)
+        listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
         listComp!.view.frame = self.view.bounds
-        debugLog(listComp!.view.frame)
+        
         self.addChildViewController(listComp!)
         self.view.addSubview(listComp!.view)
+        listComp?.didMoveToParentViewController(self)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{

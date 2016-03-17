@@ -8,39 +8,43 @@
 
 import UIKit
 
-class SettingsViewController: BaseListViewController {
+class SettingsViewController: BaseViewController, ListViewProtocol {
 
-    let _viewModel = SettingsViewModel()
-    override var viewModel: BaseListViewModel {
-        get {
-            return _viewModel
-        }
-        set {
-            super.viewModel = newValue
-        }
-    }
+    var viewModel:SettingsViewModel?
+    var listComp:ListViewComponent?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Settings"
     }
     
-    override func initController() {
-        super.initController()
-        needFooterRefresh = false
-        needHeaderRefresh = false
-        tableStyle = UITableViewStyle.Grouped
-        reuseIdentifier = "settings_identifier"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = SettingsViewModel()
+        listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
+        listComp?.needFooterRefresh = false
+        listComp?.needHeaderRefresh = false
+        listComp?.tableStyle = UITableViewStyle.Grouped
+        listComp?.view.frame = self.view.bounds
+        
+        self.addChildViewController(listComp!)
+        self.view.addSubview(listComp!.view)
+        listComp?.didMoveToParentViewController(self)
     }
     
-    override func configDataForCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        return CGFloat(60)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "settings_identifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = _viewModel.titleAtIndexPath(indexPath)
-        cell.detailTextLabel?.text = _viewModel.detailAtIndexPath(indexPath)
+        cell.textLabel?.text = viewModel?.titleAtIndexPath(indexPath)
+        cell.detailTextLabel?.text = viewModel?.detailAtIndexPath(indexPath)
+        return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 {
             NSNotificationCenter.defaultCenter().postNotificationName(Constants.Notification.LoginExpired, object: nil)
         }

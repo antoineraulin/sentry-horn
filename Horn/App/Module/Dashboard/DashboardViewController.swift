@@ -8,17 +8,13 @@
 
 import UIKit
 
-class DashboardViewController: BaseListViewController {
+class DashboardViewController: BaseViewController,SegmentProtocol {
     
-    let _viewModel = DashboardViewModel()
-    override var viewModel: BaseListViewModel {
-        get {
-            return _viewModel
-        }
-        set {
-            super.viewModel = newValue
-        }
-    }
+    var listComps:[ListViewComponent] = Array<ListViewComponent>()
+    var viewModels:[DashboardViewModel] = Array<DashboardViewModel>()
+    var currentViewModel:DashboardViewModel?
+    var currentComp:ListViewComponent?
+    let titles = ["Assigned","New"]
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -27,67 +23,57 @@ class DashboardViewController: BaseListViewController {
     
     override func initController() {
         super.initController()
-        needFooterRefresh = false
-        reuseIdentifier = "dashboard_identifier"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let segmented = YSSegmentedControl(
-            frame: CGRect(x: 0, y: _tabHeight, width: _viewWidth, height: 50),
-            titles: ["Assigned","New",],
-            action: {
-                control, index in
-                self.segmentSelect(control, selectedSegmentIndex: index)
-        })
-        self.view.addSubview(segmented)
-        
-        tableView.frame = CGRectMake(0, 40, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
-        
-        segmented.appearance = YSSegmentedControlAppearance(
-            backgroundColor: UIColor.whiteColor(),
-            selectedBackgroundColor: UIColor.whiteColor(),
+        self.addSegment()
+        self.addSubControllers()
+    }
+    
+    func addSegment(){
+        let segmented = SegmentComponent(adapter: self,titles:self.titles)
+        segmented.view.frame = CGRectMake(0, _tabHeight, _viewWidth, 50)
+        self.addChildViewController(segmented)
+        self.view.addSubview(segmented.view)
+    }
+    
+    func addSubControllers(){
+        for (index, title) in titles.enumerate()
+        {
+            let viewModel = DashboardViewModel(type: title)
+            let adapter = DashboardAdapter(viewModel:viewModel,context: self)
+            let listComp = ListViewComponent(adapter: adapter, viewModel: viewModel)
+            listComp.view.frame = CGRectMake(0, 40+_naviHeight, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
+            self.addChildViewController(listComp)
+            self.view.addSubview(listComp.view)
             
-            textColor: UIColor(rgba: Color.FontGray),
-            font: UIFont.systemFontOfSize(14),
+            listComps.append(listComp)
+            viewModels.append(viewModel)
             
-            selectedTextColor: UIColor(rgba: Color.FontBlack),
-            selectedFont: UIFont.systemFontOfSize(14),
-            
-            bottomLineColor: UIColor(rgba: Color.LineGray),
-            selectorColor: UIColor(rgba:Color.Blue),
-            
-            bottomLineHeight: 0.5,
-            selectorHeight: 1,
-            labelTopPadding: 10
-        )
-        
+            if index == 0
+            {
+                currentComp = listComp
+                currentViewModel = viewModel
+                currentComp!.didMoveToParentViewController(self)
+            }
+        }
     }
     
     func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int) {
-        if selectedSegmentIndex == 0 {
-            _viewModel.type = "Assigned"
-        } else {
-            _viewModel.type = "New"
+        currentViewModel = viewModels[selectedSegmentIndex]
+        self.transitionViewController(currentComp!, newController: listComps[selectedSegmentIndex])
+    }
+    
+    func transitionViewController(oldController:ListViewComponent, newController:ListViewComponent){
+        self.transitionFromViewController(oldController, toViewController: newController, duration: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
+            if (finished) {
+                self.currentComp = newController
+                self.currentComp!.didMoveToParentViewController(self)
+            }else{
+                self.currentComp = oldController
+            }
         }
-        reuseIdentifier = "dashboard_identifier"+_viewModel.type
-        
-        self.showLoading()
-        self.clearAndRefreshView()
-    }
-    
-    override func configDataForCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = _viewModel.nameAtIndexPath(indexPath)
-        cell.detailTextLabel?.text = _viewModel.detailAtIndexPath(indexPath)
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
-        let event = EventDetailViewController()
-        event.url = _viewModel.permalinkAtIndexPath(indexPath)
-        self.pushViewController(event)
     }
     
     override func didReceiveMemoryWarning() {
