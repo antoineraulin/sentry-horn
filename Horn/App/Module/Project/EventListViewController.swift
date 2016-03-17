@@ -8,58 +8,53 @@
 
 import UIKit
 
-class EventListViewController: BaseListViewController {
+class EventListViewController: BaseViewController, ListViewProtocol {
     
     var project_name = ""
-    var project_slug:String = "" {
-        didSet
-        {
-            _viewModel.project_slug = project_slug
-        }
-    }
-    
-    let _viewModel = EventListViewModel()
-    override var viewModel: BaseListViewModel {
-        get {
-            return _viewModel
-        }
-        set {
-            super.viewModel = newValue
-        }
-    }
+    var project_slug:String = ""
+    var list:ListViewController?
+    var viewModel:EventListViewModel?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = project_name
     }
     
-    override func initController() {
-        super.initController()
-        cellHeight = 90
-        reuseIdentifier = "events_identifier"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = EventListViewModel(project_slug: self.project_slug)
+        list = ListViewController(parent: self, viewModel: viewModel!)
+        list!.view.frame = CGRectMake(0, _naviHeight, _viewWidth, _viewHeight)
+        self.view.addSubview(list!.view)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: EventCell = EventCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: reuseIdentifier)
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        return CGFloat(90)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        let cell: EventCell = EventCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "event_reuseIdentifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.titleLabel.text = _viewModel.titleAtIndexPath(indexPath)
-        cell.detailLabel.text = _viewModel.detailAtIndexPath(indexPath)
-        cell.flagLabel.text = _viewModel.flagAtIndexPath(indexPath)
-        cell.timeLabel.text = _viewModel.timeAtIndexPath(indexPath)
-        cell.levelView.backgroundColor = UIColor(rgba:_viewModel.levelColorAtIndexPath(indexPath))
+        cell.titleLabel.text = viewModel?.titleAtIndexPath(indexPath)
+        cell.detailLabel.text = viewModel?.detailAtIndexPath(indexPath)
+        cell.flagLabel.text = viewModel?.flagAtIndexPath(indexPath)
+        cell.timeLabel.text = viewModel?.timeAtIndexPath(indexPath)
+        cell.levelView.backgroundColor = UIColor(rgba:(viewModel?.levelColorAtIndexPath(indexPath))!)
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let event = EventDetailViewController()
-        event.url = _viewModel.permalinkAtIndexPath(indexPath)
+        event.url = (viewModel?.permalinkAtIndexPath(indexPath))!
         self.pushViewController(event)
+    }
+    
+    func updateOtherUI() {
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }

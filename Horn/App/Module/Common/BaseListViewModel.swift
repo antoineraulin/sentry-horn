@@ -74,7 +74,7 @@ class BaseListViewModel: BaseViewModel {
     }
     
     func buildRemoteUrl() {
-        fatalError("buildRemoteUrl need override by subclass")
+//        fatalError("buildRemoteUrl need override by subclass")
     }
     
     func parseLink(headers: [NSObject : AnyObject]){

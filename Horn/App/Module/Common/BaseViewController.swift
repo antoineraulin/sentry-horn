@@ -30,6 +30,11 @@ class BaseViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        hideLoading()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +45,6 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         _viewWidth = self.view.frame.size.width
         _viewHeight = self.view.frame.size.height
-        debugLog(_viewWidth)
-        debugLog(_viewHeight)
     }
 
     func showLoading() {

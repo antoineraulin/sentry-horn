@@ -16,6 +16,11 @@ class EventListViewModel: BaseListViewModel {
     var limit = 25
     var project_slug = ""
     
+    convenience init(project_slug:String) {
+        self.init()
+        self.project_slug = project_slug
+    }
+    
     override var dataArray: Array<BaseObject> {
         get {
             return _dataArray
