@@ -12,7 +12,7 @@ class EventListViewController: BaseViewController, ListViewProtocol {
     
     var project_name = ""
     var project_slug:String = ""
-    var list:ListViewController?
+    var listComp:ListViewComponent?
     var viewModel:EventListViewModel?
     
     override func viewWillAppear(animated: Bool) {
@@ -23,9 +23,10 @@ class EventListViewController: BaseViewController, ListViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EventListViewModel(project_slug: self.project_slug)
-        list = ListViewController(parent: self, viewModel: viewModel!)
-        list!.view.frame = CGRectMake(0, _naviHeight, _viewWidth, _viewHeight)
-        self.view.addSubview(list!.view)
+        listComp = ListViewComponent(parent: self, viewModel: viewModel!)
+        listComp!.view.frame = self.view.bounds
+        self.addChildViewController(listComp!)
+        self.view.addSubview(listComp!.view)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{

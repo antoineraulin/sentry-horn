@@ -8,39 +8,42 @@
 
 import UIKit
 
-class ProjectListViewController: BaseListViewController {
-    
-    let _viewModel = ProjectListViewModel()
-    override var viewModel: BaseListViewModel {
-        get {
-            return _viewModel
-        }
-        set {
-            super.viewModel = newValue
-        }
-    }
+class ProjectListViewController: BaseViewController, ListViewProtocol  {
+
+    var listComp:ListViewComponent?
+    var viewModel:ProjectListViewModel?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Projects"
     }
     
-    override func initController() {
-        super.initController()
-        reuseIdentifier = "projects_identifier"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel = ProjectListViewModel()
+        listComp = ListViewComponent(parent: self, viewModel: viewModel!)
+        listComp!.view.frame = self.view.bounds
+        debugLog(listComp!.view.frame)
+        self.addChildViewController(listComp!)
+        self.view.addSubview(listComp!.view)
     }
     
-    override func configDataForCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        return CGFloat(60)
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "project_reuseIdentifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        cell.textLabel?.text = _viewModel.nameAtIndexPath(indexPath)
-        cell.detailTextLabel?.text = _viewModel.detailAtIndexPath(indexPath)
+        cell.textLabel?.text = viewModel!.nameAtIndexPath(indexPath)
+        cell.detailTextLabel?.text = viewModel!.detailAtIndexPath(indexPath)
+        return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        super.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let event = EventListViewController()
-        event.project_name = _viewModel.nameAtIndexPath(indexPath)
-        event.project_slug = _viewModel.slugAtIndexPath(indexPath)
+        event.project_name = viewModel!.nameAtIndexPath(indexPath)
+        event.project_slug = viewModel!.slugAtIndexPath(indexPath)
         self.pushViewController(event)
     }
     

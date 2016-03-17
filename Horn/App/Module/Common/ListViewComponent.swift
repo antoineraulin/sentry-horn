@@ -10,33 +10,31 @@ import UIKit
 import Observable
 import MJRefresh
 
-protocol ListViewProtocol
+@objc protocol ListViewProtocol
 {
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    func updateOtherUI()
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    optional func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    optional func updateOtherUI()
 }
 
-class ListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate
+class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewDelegate
 {
-    private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
-    var viewModel: BaseListViewModel = BaseListViewModel()
-    
     var needHeaderRefresh = true
     var needFooterRefresh = true
     
-    private var tableStyle:UITableViewStyle = UITableViewStyle.Plain
-    private var cellHeight = 60
+    var tableStyle:UITableViewStyle = UITableViewStyle.Plain
+    
+    private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
+    private var viewModel: BaseListViewModel = BaseListViewModel()
     
     // 顶部刷新
     private let header = MJRefreshNormalHeader()
+    
     // 底部刷新
-    let footer = MJRefreshAutoNormalFooter()
-    
-    var reuseIdentifier = "default_resueIdentifier"
-    
-    var parent:ListViewProtocol?
+    private let footer = MJRefreshAutoNormalFooter()
+
+    private var parent:ListViewProtocol?
     
     convenience init(parent: BaseViewController,viewModel:BaseListViewModel){
         self.init()
@@ -81,7 +79,7 @@ class ListViewController: BaseViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        self.parent!.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+        self.parent?.tableView?(tableView, didSelectRowAtIndexPath: indexPath)
     }
     
     func addKVO() {
@@ -114,7 +112,7 @@ class ListViewController: BaseViewController, UITableViewDataSource, UITableView
     }
     
     func updateOtherUI() {
-        self.parent?.updateOtherUI()
+        self.parent?.updateOtherUI?()
     }
     
     func clearAndReset() {
