@@ -13,15 +13,14 @@ import UIKit
 }
 
 class SegmentComponent:BaseViewController {
-    
-    var listComps:[ListViewComponent] = Array<ListViewComponent>()
-    var viewModels:[BaseViewModel] = Array<BaseViewModel>()
+
     var titles:[String]?
     private var adapter:SegmentProtocol?
     
-    convenience init(adapter:SegmentProtocol,titles:[String]){
+    convenience init(adapter:SegmentProtocol, titles:[String]){
         self.init()
         self.adapter = adapter
+        self.titles = titles
     }
     
     override func viewDidLoad() {

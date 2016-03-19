@@ -21,10 +21,6 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
         self.tabBarController?.title = "Dashboard"
     }
     
-    override func initController() {
-        super.initController()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addSegment()
@@ -32,8 +28,8 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     }
     
     func addSegment(){
-        let segmented = SegmentComponent(adapter: self,titles:self.titles)
-        segmented.view.frame = CGRectMake(0, _tabHeight, _viewWidth, 50)
+        let segmented = SegmentComponent(adapter: self, titles:self.titles)
+        segmented.view.frame = CGRectMake(0, _naviHeight, _viewWidth, 50)
         self.addChildViewController(segmented)
         self.view.addSubview(segmented.view)
     }

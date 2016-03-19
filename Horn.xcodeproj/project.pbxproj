@@ -13,7 +13,6 @@
 		E48BFC9C1C9A5B6E002A2B1D /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */; };
 		E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */; };
 		E48BFCA11C9ADECC002A2B1D /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */; };
-		E4961FB21C8EB4B80063FE86 /* BaseListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F991C8EB4B80063FE86 /* BaseListViewController.swift */; };
 		E4961FB31C8EB4B80063FE86 /* BaseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */; };
 		E4961FB41C8EB4B80063FE86 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */; };
 		E4961FB51C8EB4B80063FE86 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */; };
@@ -22,8 +21,6 @@
 		E4961FB81C8EB4B80063FE86 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */; };
 		E4961FB91C8EB4B80063FE86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA11C8EB4B80063FE86 /* LoginViewController.swift */; };
 		E4961FBA1C8EB4B80063FE86 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA21C8EB4B80063FE86 /* MainViewController.swift */; };
-		E4961FBB1C8EB4B80063FE86 /* OrganizationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA41C8EB4B80063FE86 /* OrganizationListViewController.swift */; };
-		E4961FBC1C8EB4B80063FE86 /* OrgnaizationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA51C8EB4B80063FE86 /* OrgnaizationListViewModel.swift */; };
 		E4961FBD1C8EB4B80063FE86 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA81C8EB4B80063FE86 /* EventCell.swift */; };
 		E4961FBE1C8EB4B80063FE86 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA91C8EB4B80063FE86 /* EventDetailViewController.swift */; };
 		E4961FBF1C8EB4B80063FE86 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FAA1C8EB4B80063FE86 /* EventListViewController.swift */; };
@@ -77,7 +74,6 @@
 		E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
 		E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardAdapter.swift; sourceTree = "<group>"; };
 		E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
-		E4961F991C8EB4B80063FE86 /* BaseListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewController.swift; sourceTree = "<group>"; };
 		E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewModel.swift; sourceTree = "<group>"; };
 		E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -86,8 +82,6 @@
 		E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E4961FA11C8EB4B80063FE86 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E4961FA21C8EB4B80063FE86 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		E4961FA41C8EB4B80063FE86 /* OrganizationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListViewController.swift; sourceTree = "<group>"; };
-		E4961FA51C8EB4B80063FE86 /* OrgnaizationListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgnaizationListViewModel.swift; sourceTree = "<group>"; };
 		E4961FA81C8EB4B80063FE86 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		E4961FA91C8EB4B80063FE86 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		E4961FAA1C8EB4B80063FE86 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				E4961F981C8EB4B80063FE86 /* Common */,
-				E4961FA31C8EB4B80063FE86 /* Organization */,
 				E4961F9E1C8EB4B80063FE86 /* Dashboard */,
 				E4961FA61C8EB4B80063FE86 /* Project */,
 				E4961FAE1C8EB4B80063FE86 /* Settings */,
@@ -187,7 +180,6 @@
 		E4961F981C8EB4B80063FE86 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E4961F991C8EB4B80063FE86 /* BaseListViewController.swift */,
 				E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */,
 				E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */,
 				E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */,
@@ -206,15 +198,6 @@
 				E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */,
 			);
 			path = Dashboard;
-			sourceTree = "<group>";
-		};
-		E4961FA31C8EB4B80063FE86 /* Organization */ = {
-			isa = PBXGroup;
-			children = (
-				E4961FA41C8EB4B80063FE86 /* OrganizationListViewController.swift */,
-				E4961FA51C8EB4B80063FE86 /* OrgnaizationListViewModel.swift */,
-			);
-			path = Organization;
 			sourceTree = "<group>";
 		};
 		E4961FA61C8EB4B80063FE86 /* Project */ = {
@@ -348,11 +331,11 @@
 		E4B1A4F11C8ACF82007228D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */,
 				E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */,
 				E4B1A5621C8AD6A7007228D5 /* ProjectObject.swift */,
 				E4B1A5631C8AD6A7007228D5 /* TagObject.swift */,
 				E4B1A5641C8AD6A7007228D5 /* TeamObject.swift */,
-				E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */,
 				E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */,
 				E4961FC71C8EB6FD0063FE86 /* SettingsObject.swift */,
 			);
@@ -562,12 +545,10 @@
 			files = (
 				E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */,
 				E4961FC21C8EB4B80063FE86 /* ProjectListViewModel.swift in Sources */,
-				E4961FBB1C8EB4B80063FE86 /* OrganizationListViewController.swift in Sources */,
 				E4961FB51C8EB4B80063FE86 /* BaseViewModel.swift in Sources */,
 				E4B1A51B1C8ACF82007228D5 /* HRToast+UIView.swift in Sources */,
 				E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */,
 				E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */,
-				E4961FB21C8EB4B80063FE86 /* BaseListViewController.swift in Sources */,
 				E4B1A52A1C8ACF82007228D5 /* UIColorExtension.swift in Sources */,
 				E4961FB41C8EB4B80063FE86 /* BaseViewController.swift in Sources */,
 				E4B1A5681C8AD6A7007228D5 /* TeamObject.swift in Sources */,
@@ -594,7 +575,6 @@
 				E4A5A7191C8D99440012D37A /* TimeAgo.swift in Sources */,
 				E4961FBF1C8EB4B80063FE86 /* EventListViewController.swift in Sources */,
 				E4961FC31C8EB4B80063FE86 /* SettingsViewController.swift in Sources */,
-				E4961FBC1C8EB4B80063FE86 /* OrgnaizationListViewModel.swift in Sources */,
 				E4961FB71C8EB4B80063FE86 /* DashboardViewController.swift in Sources */,
 				E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */,
 				E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */,

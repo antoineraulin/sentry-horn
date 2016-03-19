@@ -50,12 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    func showOrgView() {
-        let org = OrganizationListViewController()
-        let navi = UINavigationController(rootViewController: org)
-        self.window!.rootViewController = navi
-    }
-    
     func showMainView() {
         let main = MainViewController()
         let navi = UINavigationController(rootViewController: main)

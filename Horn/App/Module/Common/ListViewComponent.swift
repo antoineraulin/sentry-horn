@@ -22,16 +22,12 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
 {
     var needHeaderRefresh = true
     var needFooterRefresh = true
-    
     var tableStyle:UITableViewStyle = UITableViewStyle.Plain
     
     private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
     private var viewModel: BaseListViewModel = BaseListViewModel()
-
     private let header = MJRefreshNormalHeader()
-    
     private let footer = MJRefreshAutoNormalFooter()
-
     private var adapter:ListViewProtocol?
     
     convenience init(adapter:ListViewProtocol,viewModel:BaseListViewModel){
