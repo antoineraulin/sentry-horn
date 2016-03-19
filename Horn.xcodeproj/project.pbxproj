@@ -15,7 +15,6 @@
 		E48BFCA11C9ADECC002A2B1D /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */; };
 		E4961FB31C8EB4B80063FE86 /* BaseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */; };
 		E4961FB41C8EB4B80063FE86 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */; };
-		E4961FB51C8EB4B80063FE86 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */; };
 		E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */; };
 		E4961FB71C8EB4B80063FE86 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */; };
 		E4961FB81C8EB4B80063FE86 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */; };
@@ -76,7 +75,6 @@
 		E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
 		E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewModel.swift; sourceTree = "<group>"; };
 		E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -182,7 +180,6 @@
 			children = (
 				E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */,
 				E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */,
-				E4961F9C1C8EB4B80063FE86 /* BaseViewModel.swift */,
 				E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */,
 				E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */,
 				E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */,
@@ -545,7 +542,6 @@
 			files = (
 				E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */,
 				E4961FC21C8EB4B80063FE86 /* ProjectListViewModel.swift in Sources */,
-				E4961FB51C8EB4B80063FE86 /* BaseViewModel.swift in Sources */,
 				E4B1A51B1C8ACF82007228D5 /* HRToast+UIView.swift in Sources */,
 				E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */,
 				E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */,

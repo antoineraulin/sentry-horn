@@ -11,7 +11,13 @@ import Alamofire
 import SwiftyJSON
 import Observable
 
-class BaseListViewModel: BaseViewModel {
+enum FetchDataResult: Int {
+    case Normal = -1
+    case Success = 0
+    case Failed = 1
+}
+
+class BaseListViewModel: NSObject {
 
     var remoteUrl = ""
     var message = ""

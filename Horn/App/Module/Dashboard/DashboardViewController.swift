@@ -40,6 +40,7 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
             let adapter = DashboardAdapter(viewModel:viewModel, context: self)
             let listComp = ListViewComponent(adapter: adapter, viewModel: viewModel)
             listComp.fetchDataWhenInit = false
+            listComp.view.hidden = true
             listComp.view.frame = CGRectMake(0, 40 + _naviHeight, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
             self.addComponent(listComp)
             
@@ -52,6 +53,7 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
                 currentViewModel = viewModel
             }
         }
+        currentComp?.view.hidden = false
         currentComp?.fetchData()
     }
     
@@ -63,10 +65,13 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     func transitionViewController(oldController:ListViewComponent, newController:ListViewComponent){
         self.transitionFromViewController(oldController, toViewController: newController, duration: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
             if (finished) {
+                oldController.view.hidden = true
                 self.currentComp = newController
+                self.currentComp?.view.hidden = false
                 self.currentComp?.fetchData()
             }else{
                 self.currentComp = oldController
+                oldController.view.hidden = false
             }
         }
     }
