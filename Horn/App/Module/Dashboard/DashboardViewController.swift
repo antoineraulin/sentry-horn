@@ -63,7 +63,7 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     }
     
     func transitionViewController(oldController:ListViewComponent, newController:ListViewComponent){
-        self.transitionFromViewController(oldController, toViewController: newController, duration: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
+        self.transitionFromViewController(oldController, toViewController: newController, duration: 0.1, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
             if (finished) {
                 oldController.view.hidden = true
                 self.currentComp = newController
