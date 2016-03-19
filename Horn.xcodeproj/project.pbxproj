@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		640D33F4DA10DB0BAD4706D0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E787E8FC8E7EA66500B29 /* Pods.framework */; };
+		D30217381C9D51E30067CCD4 /* FetchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30217331C9D51E30067CCD4 /* FetchViewModel.swift */; };
+		D30217391C9D51E30067CCD4 /* ListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30217341C9D51E30067CCD4 /* ListProtocol.swift */; };
+		D302173A1C9D51E30067CCD4 /* WYProjectListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30217351C9D51E30067CCD4 /* WYProjectListAdapter.swift */; };
+		D302173B1C9D51E30067CCD4 /* WYProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30217361C9D51E30067CCD4 /* WYProjectListViewController.swift */; };
+		D302173C1C9D51E30067CCD4 /* WYProjectListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30217371C9D51E30067CCD4 /* WYProjectListViewModel.swift */; };
 		E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */; };
 		E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */; };
 		E48BFC9C1C9A5B6E002A2B1D /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */; };
@@ -72,6 +77,11 @@
 
 /* Begin PBXFileReference section */
 		151E787E8FC8E7EA66500B29 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30217331C9D51E30067CCD4 /* FetchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchViewModel.swift; sourceTree = "<group>"; };
+		D30217341C9D51E30067CCD4 /* ListProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProtocol.swift; sourceTree = "<group>"; };
+		D30217351C9D51E30067CCD4 /* WYProjectListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYProjectListAdapter.swift; sourceTree = "<group>"; };
+		D30217361C9D51E30067CCD4 /* WYProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYProjectListViewController.swift; sourceTree = "<group>"; };
+		D30217371C9D51E30067CCD4 /* WYProjectListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WYProjectListViewModel.swift; sourceTree = "<group>"; };
 		E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationObject.swift; sourceTree = "<group>"; };
 		E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueObject.swift; sourceTree = "<group>"; };
 		E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
@@ -169,6 +179,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D30217321C9D51D30067CCD4 /* WY */ = {
+			isa = PBXGroup;
+			children = (
+				D302173E1C9D529C0067CCD4 /* Adapter */,
+				D302173D1C9D52920067CCD4 /* Common */,
+				D30217361C9D51E30067CCD4 /* WYProjectListViewController.swift */,
+				D30217371C9D51E30067CCD4 /* WYProjectListViewModel.swift */,
+			);
+			path = WY;
+			sourceTree = "<group>";
+		};
+		D302173D1C9D52920067CCD4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D30217331C9D51E30067CCD4 /* FetchViewModel.swift */,
+				D30217341C9D51E30067CCD4 /* ListProtocol.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		D302173E1C9D529C0067CCD4 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				D30217351C9D51E30067CCD4 /* WYProjectListAdapter.swift */,
+			);
+			name = Adapter;
+			sourceTree = "<group>";
+		};
 		E4961F971C8EB4B80063FE86 /* Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +264,7 @@
 				E4961FAB1C8EB4B80063FE86 /* EventListViewModel.swift */,
 				E4961FAC1C8EB4B80063FE86 /* ProjectListViewController.swift */,
 				E4961FAD1C8EB4B80063FE86 /* ProjectListViewModel.swift */,
+				D30217321C9D51D30067CCD4 /* WY */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -563,8 +602,11 @@
 				E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */,
 				E4961FC21C8EB4B80063FE86 /* ProjectListViewModel.swift in Sources */,
 				E4961FBB1C8EB4B80063FE86 /* OrganizationListViewController.swift in Sources */,
+				D30217381C9D51E30067CCD4 /* FetchViewModel.swift in Sources */,
 				E4961FB51C8EB4B80063FE86 /* BaseViewModel.swift in Sources */,
 				E4B1A51B1C8ACF82007228D5 /* HRToast+UIView.swift in Sources */,
+				D302173B1C9D51E30067CCD4 /* WYProjectListViewController.swift in Sources */,
+				D302173A1C9D51E30067CCD4 /* WYProjectListAdapter.swift in Sources */,
 				E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */,
 				E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */,
 				E4961FB21C8EB4B80063FE86 /* BaseListViewController.swift in Sources */,
@@ -576,6 +618,7 @@
 				E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */,
 				E4961FB31C8EB4B80063FE86 /* BaseListViewModel.swift in Sources */,
 				E4961FC11C8EB4B80063FE86 /* ProjectListViewController.swift in Sources */,
+				D302173C1C9D51E30067CCD4 /* WYProjectListViewModel.swift in Sources */,
 				E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */,
 				E4961FB91C8EB4B80063FE86 /* LoginViewController.swift in Sources */,
 				E4B1A5281C8ACF82007228D5 /* LogUtil.swift in Sources */,
@@ -598,6 +641,7 @@
 				E4961FB71C8EB4B80063FE86 /* DashboardViewController.swift in Sources */,
 				E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */,
 				E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */,
+				D30217391C9D51E30067CCD4 /* ListProtocol.swift in Sources */,
 				E4961FC61C8EB5D90063FE86 /* SettingsViewModel.swift in Sources */,
 				E48BFCA11C9ADECC002A2B1D /* SegmentComponent.swift in Sources */,
 			);

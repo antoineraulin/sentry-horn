@@ -22,7 +22,9 @@ class MainViewController: UITabBarController,UITabBarControllerDelegate {
         let dashboard: DashboardViewController = DashboardViewController()
         dashboard.tabBarItem = UITabBarItem(title: "Dashboard", image: UIImage(named:"Dashboard"), selectedImage: UIImage(named: "DashboardFill"))
         
-        let projects: ProjectListViewController = ProjectListViewController()
+//        let projects: ProjectListViewController = ProjectListViewController()
+        let projects: WYProjectListViewController = WYProjectListViewController()
+
         projects.tabBarItem = UITabBarItem(title: "Projects", image: UIImage(named:"Projects"), selectedImage: UIImage(named: "ProjectsFill"))
         
         let stats: StatsViewController = StatsViewController()

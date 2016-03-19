@@ -22,6 +22,7 @@ class SegmentComponent:BaseViewController {
     convenience init(adapter:SegmentProtocol,titles:[String]){
         self.init()
         self.adapter = adapter
+        self.titles = titles
     }
     
     override func viewDidLoad() {
