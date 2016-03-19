@@ -25,9 +25,7 @@ class EventListViewController: BaseViewController, ListViewProtocol {
         viewModel = EventListViewModel(project_slug: self.project_slug)
         listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
         listComp!.view.frame = self.view.bounds
-        self.addChildViewController(listComp!)
-        self.view.addSubview(listComp!.view)
-        listComp?.didMoveToParentViewController(self)
+        self.addComponent(listComp!)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{

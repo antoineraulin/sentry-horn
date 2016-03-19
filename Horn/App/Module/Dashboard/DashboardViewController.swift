@@ -28,21 +28,20 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     }
     
     func addSegment(){
-        let segmented = SegmentComponent(adapter: self, titles:self.titles)
-        segmented.view.frame = CGRectMake(0, _naviHeight, _viewWidth, 50)
-        self.addChildViewController(segmented)
-        self.view.addSubview(segmented.view)
+        let segmented = SegmentComponent(adapter:self, titles:titles)
+        segmented.view.frame = CGRectMake(0, _naviHeight, _viewWidth, 40)
+        self.addComponent(segmented)
     }
     
     func addSubControllers(){
         for (index, title) in titles.enumerate()
         {
             let viewModel = DashboardViewModel(type: title)
-            let adapter = DashboardAdapter(viewModel:viewModel,context: self)
+            let adapter = DashboardAdapter(viewModel:viewModel, context: self)
             let listComp = ListViewComponent(adapter: adapter, viewModel: viewModel)
-            listComp.view.frame = CGRectMake(0, 40+_naviHeight, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
-            self.addChildViewController(listComp)
-            self.view.addSubview(listComp.view)
+            listComp.fetchDataWhenInit = false
+            listComp.view.frame = CGRectMake(0, 40 + _naviHeight, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
+            self.addComponent(listComp)
             
             listComps.append(listComp)
             viewModels.append(viewModel)
@@ -51,9 +50,9 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
             {
                 currentComp = listComp
                 currentViewModel = viewModel
-                currentComp!.didMoveToParentViewController(self)
             }
         }
+        currentComp?.fetchData()
     }
     
     func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int) {
@@ -65,7 +64,7 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
         self.transitionFromViewController(oldController, toViewController: newController, duration: 0.3, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
             if (finished) {
                 self.currentComp = newController
-                self.currentComp!.didMoveToParentViewController(self)
+                self.currentComp?.fetchData()
             }else{
                 self.currentComp = oldController
             }

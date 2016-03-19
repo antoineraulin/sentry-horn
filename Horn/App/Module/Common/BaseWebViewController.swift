@@ -16,7 +16,7 @@ class BaseWebViewController: BaseViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView.frame = CGRectMake(0, -40, _viewWidth, _viewHeight)
+        webView.frame = self.view.bounds
         webView.scrollView.contentSize.width = _viewWidth
         webView.delegate=self
         webView.scalesPageToFit = true;

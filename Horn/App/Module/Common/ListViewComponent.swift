@@ -22,6 +22,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
 {
     var needHeaderRefresh = true
     var needFooterRefresh = true
+    var fetchDataWhenInit = true
     var tableStyle:UITableViewStyle = UITableViewStyle.Plain
     
     private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
@@ -38,7 +39,10 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        super.didMoveToParentViewController(parent)
         self.addKVO()
         
         tableView = UITableView(frame: self.view.bounds, style: tableStyle)
@@ -55,11 +59,10 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
             footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefreshing"))
             self.tableView.mj_footer = footer
         }
-    }
-    
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        super.didMoveToParentViewController(parent)
-        refreshView()
+        
+        if (fetchDataWhenInit){
+            self.fetchData()
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -79,13 +82,30 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         self.adapter?.tableView?(tableView, didSelectRowAtIndexPath: indexPath)
     }
     
-    func addKVO() {
+    func clearAndReset() {
+        viewModel.page = 1
+        viewModel.cursor = ""
+        viewModel.clearData()
+        tableView.reloadData()
+    }
+    
+    func clearAndRefreshView() {
+        clearAndReset()
+        viewModel.fetchRemoteData()
+    }
+    
+    func fetchData() {
+        self.showLoading()
+        viewModel.fetchRemoteData()
+    }
+    
+    private func addKVO() {
         viewModel.fetchDataResult.afterChange += {
             self.observeHandler($1)
         }
     }
     
-    func observeHandler(newValue: Int) {
+    private func observeHandler(newValue: Int) {
         self.hideLoading()
         if (needHeaderRefresh) {
             self.tableView.mj_header.endRefreshing()
@@ -108,32 +128,15 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func updateOtherUI() {
+    private func updateOtherUI() {
         self.adapter?.updateOtherUI?()
     }
     
-    func clearAndReset() {
-        viewModel.page = 1
-        viewModel.cursor = ""
-        viewModel.clearData()
-        tableView.reloadData()
-    }
-    
-    func clearAndRefreshView() {
-        clearAndReset()
-        viewModel.fetchRemoteData()
-    }
-    
-    func refreshView() {
-        self.showLoading()
-        viewModel.fetchRemoteData()
-    }
-    
-    func headerRefreshing() {
+    private func headerRefreshing() {
         self.viewModel.handleHeaderRefreshing()
     }
     
-    func footerRefreshing() {
+    private func footerRefreshing() {
         self.viewModel.handleFooterRereshing()
     }
     

@@ -25,10 +25,14 @@ class SegmentComponent:BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func didMoveToParentViewController(parent: UIViewController?){
         self.initSegment()
     }
 
     func initSegment(){
+        debugLog(self.view.bounds)
         let segmented = YSSegmentedControl(
             frame: self.view.bounds,
             titles: self.titles!,
@@ -53,7 +57,7 @@ class SegmentComponent:BaseViewController {
             
             bottomLineHeight: 0.5,
             selectorHeight: 1,
-            labelTopPadding: 10
+            labelTopPadding: 0
         )
     }
     

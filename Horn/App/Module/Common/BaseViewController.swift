@@ -67,6 +67,12 @@ class BaseViewController: UIViewController {
     func popViewController() {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
+    func addComponent(component: UIViewController) {
+        self.addChildViewController(component)
+        self.view.addSubview(component.view)
+        component.didMoveToParentViewController(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
