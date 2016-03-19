@@ -11,8 +11,8 @@ import UIKit
 
 class DashboardAdapter:NSObject, ListViewProtocol{
     
-    var context:BaseViewController?
-    var viewModel:DashboardViewModel?
+    weak var context:BaseViewController?
+    weak var viewModel:DashboardViewModel?
     
     init(viewModel:DashboardViewModel, context:BaseViewController){
         self.viewModel = viewModel

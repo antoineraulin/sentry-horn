@@ -27,11 +27,9 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     
     private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
     private var viewModel: BaseListViewModel = BaseListViewModel()
-    
-    // 顶部刷新
+
     private let header = MJRefreshNormalHeader()
     
-    // 底部刷新
     private let footer = MJRefreshAutoNormalFooter()
 
     private var adapter:ListViewProtocol?
