@@ -13,7 +13,7 @@ import MJRefresh
 @objc protocol ListViewProtocol
 {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    optional func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
     optional func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     optional func updateOtherUI()
 }
@@ -66,7 +66,11 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return self.adapter!.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        if let height = self.adapter?.tableView?(tableView, heightForRowAtIndexPath: indexPath){
+            return height
+        }else{
+            return CGFloat(60)
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

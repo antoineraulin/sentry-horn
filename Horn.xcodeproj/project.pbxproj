@@ -10,12 +10,13 @@
 		640D33F4DA10DB0BAD4706D0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E787E8FC8E7EA66500B29 /* Pods.framework */; };
 		E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */; };
 		E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */; };
-		E48BFC9C1C9A5B6E002A2B1D /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */; };
+		E444C2871C9FED2100E7ED14 /* BaseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C2851C9FED2100E7ED14 /* BaseListViewModel.swift */; };
+		E444C2881C9FED2100E7ED14 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C2861C9FED2100E7ED14 /* BaseViewController.swift */; };
+		E444C2901C9FEDC800E7ED14 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28B1C9FEDC800E7ED14 /* HRToast+UIView.swift */; };
+		E444C2911C9FEDC800E7ED14 /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */; };
+		E444C2921C9FEDC800E7ED14 /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */; };
+		E444C2931C9FEDC800E7ED14 /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */; };
 		E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */; };
-		E48BFCA11C9ADECC002A2B1D /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */; };
-		E4961FB31C8EB4B80063FE86 /* BaseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */; };
-		E4961FB41C8EB4B80063FE86 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */; };
-		E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */; };
 		E4961FB71C8EB4B80063FE86 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */; };
 		E4961FB81C8EB4B80063FE86 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */; };
 		E4961FB91C8EB4B80063FE86 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA11C8EB4B80063FE86 /* LoginViewController.swift */; };
@@ -37,7 +38,6 @@
 		E4B1A4B81C8ACE05007228D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4B1A4B71C8ACE05007228D5 /* Assets.xcassets */; };
 		E4B1A4C61C8ACE06007228D5 /* HornTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4C51C8ACE06007228D5 /* HornTests.swift */; };
 		E4B1A4D11C8ACE06007228D5 /* HornUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4D01C8ACE06007228D5 /* HornUITests.swift */; };
-		E4B1A51B1C8ACF82007228D5 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4E91C8ACF81007228D5 /* HRToast+UIView.swift */; };
 		E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */; };
 		E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4F81C8ACF82007228D5 /* GMNetService.swift */; };
 		E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4FA1C8ACF82007228D5 /* Constants.swift */; };
@@ -70,12 +70,13 @@
 		151E787E8FC8E7EA66500B29 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationObject.swift; sourceTree = "<group>"; };
 		E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueObject.swift; sourceTree = "<group>"; };
-		E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
+		E444C2851C9FED2100E7ED14 /* BaseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewModel.swift; sourceTree = "<group>"; };
+		E444C2861C9FED2100E7ED14 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E444C28B1C9FEDC800E7ED14 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
+		E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
+		E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
+		E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
 		E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardAdapter.swift; sourceTree = "<group>"; };
-		E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
-		E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewModel.swift; sourceTree = "<group>"; };
-		E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E4961FA11C8EB4B80063FE86 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		E4B1A4CC1C8ACE06007228D5 /* HornUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HornUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B1A4D01C8ACE06007228D5 /* HornUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HornUITests.swift; sourceTree = "<group>"; };
 		E4B1A4D21C8ACE06007228D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4B1A4E91C8ACF81007228D5 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
 		E4B1A4F81C8ACF82007228D5 /* GMNetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMNetService.swift; sourceTree = "<group>"; };
 		E4B1A4FA1C8ACF82007228D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -161,10 +161,46 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E444C2841C9FED2100E7ED14 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E444C2851C9FED2100E7ED14 /* BaseListViewModel.swift */,
+				E444C2861C9FED2100E7ED14 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E444C2891C9FEDC800E7ED14 /* Kit */ = {
+			isa = PBXGroup;
+			children = (
+				E444C28A1C9FEDC800E7ED14 /* Category */,
+				E444C28C1C9FEDC800E7ED14 /* Component */,
+			);
+			path = Kit;
+			sourceTree = "<group>";
+		};
+		E444C28A1C9FEDC800E7ED14 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E444C28B1C9FEDC800E7ED14 /* HRToast+UIView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E444C28C1C9FEDC800E7ED14 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */,
+				E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */,
+				E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		E4961F971C8EB4B80063FE86 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				E4961F981C8EB4B80063FE86 /* Common */,
+				E444C2841C9FED2100E7ED14 /* Base */,
 				E4961F9E1C8EB4B80063FE86 /* Dashboard */,
 				E4961FA61C8EB4B80063FE86 /* Project */,
 				E4961FAE1C8EB4B80063FE86 /* Settings */,
@@ -173,18 +209,6 @@
 				E4961FA11C8EB4B80063FE86 /* LoginViewController.swift */,
 			);
 			path = Module;
-			sourceTree = "<group>";
-		};
-		E4961F981C8EB4B80063FE86 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				E4961F9A1C8EB4B80063FE86 /* BaseListViewModel.swift */,
-				E4961F9B1C8EB4B80063FE86 /* BaseViewController.swift */,
-				E4961F9D1C8EB4B80063FE86 /* BaseWebViewController.swift */,
-				E48BFC9B1C9A5B6E002A2B1D /* ListViewComponent.swift */,
-				E48BFCA01C9ADECC002A2B1D /* SegmentComponent.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		E4961F9E1C8EB4B80063FE86 /* Dashboard */ = {
@@ -290,9 +314,9 @@
 		E4B1A4DE1C8ACF81007228D5 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				E444C2891C9FEDC800E7ED14 /* Kit */,
 				E4961F971C8EB4B80063FE86 /* Module */,
 				E4B1A4DF1C8ACF81007228D5 /* 3rd */,
-				E4B1A4E71C8ACF81007228D5 /* Component */,
 				E4B1A4F11C8ACF82007228D5 /* Model */,
 				E4B1A4F71C8ACF82007228D5 /* Service */,
 				E4B1A4F91C8ACF82007228D5 /* Util */,
@@ -307,22 +331,6 @@
 				E4A5A7181C8D99440012D37A /* TimeAgo.swift */,
 			);
 			path = 3rd;
-			sourceTree = "<group>";
-		};
-		E4B1A4E71C8ACF81007228D5 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-				E4B1A4E81C8ACF81007228D5 /* Category */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		E4B1A4E81C8ACF81007228D5 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				E4B1A4E91C8ACF81007228D5 /* HRToast+UIView.swift */,
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 		E4B1A4F11C8ACF82007228D5 /* Model */ = {
@@ -542,16 +550,12 @@
 			files = (
 				E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */,
 				E4961FC21C8EB4B80063FE86 /* ProjectListViewModel.swift in Sources */,
-				E4B1A51B1C8ACF82007228D5 /* HRToast+UIView.swift in Sources */,
 				E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */,
-				E4961FB61C8EB4B80063FE86 /* BaseWebViewController.swift in Sources */,
 				E4B1A52A1C8ACF82007228D5 /* UIColorExtension.swift in Sources */,
-				E4961FB41C8EB4B80063FE86 /* BaseViewController.swift in Sources */,
+				E444C2881C9FED2100E7ED14 /* BaseViewController.swift in Sources */,
 				E4B1A5681C8AD6A7007228D5 /* TeamObject.swift in Sources */,
 				E4B1A5671C8AD6A7007228D5 /* TagObject.swift in Sources */,
-				E48BFC9C1C9A5B6E002A2B1D /* ListViewComponent.swift in Sources */,
 				E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */,
-				E4961FB31C8EB4B80063FE86 /* BaseListViewModel.swift in Sources */,
 				E4961FC11C8EB4B80063FE86 /* ProjectListViewController.swift in Sources */,
 				E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */,
 				E4961FB91C8EB4B80063FE86 /* LoginViewController.swift in Sources */,
@@ -561,10 +565,15 @@
 				E4B1A4B61C8ACE05007228D5 /* AppDelegate.swift in Sources */,
 				E4B1A5661C8AD6A7007228D5 /* ProjectObject.swift in Sources */,
 				E4961FB81C8EB4B80063FE86 /* DashboardViewModel.swift in Sources */,
+				E444C2871C9FED2100E7ED14 /* BaseListViewModel.swift in Sources */,
+				E444C2911C9FEDC800E7ED14 /* ListViewComponent.swift in Sources */,
 				E4961FC81C8EB6FD0063FE86 /* SettingsObject.swift in Sources */,
 				E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */,
+				E444C2931C9FEDC800E7ED14 /* WebViewComponent.swift in Sources */,
+				E444C2901C9FEDC800E7ED14 /* HRToast+UIView.swift in Sources */,
 				E4961FBD1C8EB4B80063FE86 /* EventCell.swift in Sources */,
 				E4B1A5291C8ACF82007228D5 /* SimulatorUtility.swift in Sources */,
+				E444C2921C9FEDC800E7ED14 /* SegmentComponent.swift in Sources */,
 				E4961FC01C8EB4B80063FE86 /* EventListViewModel.swift in Sources */,
 				E4961FBE1C8EB4B80063FE86 /* EventDetailViewController.swift in Sources */,
 				E4B162A31C8C7D1D001E2A65 /* YSSegmentedControl.swift in Sources */,
@@ -575,7 +584,6 @@
 				E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */,
 				E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */,
 				E4961FC61C8EB5D90063FE86 /* SettingsViewModel.swift in Sources */,
-				E48BFCA11C9ADECC002A2B1D /* SegmentComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

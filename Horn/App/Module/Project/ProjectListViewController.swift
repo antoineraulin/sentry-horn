@@ -26,10 +26,6 @@ class ProjectListViewController: BaseViewController, ListViewProtocol  {
         self.addComponent(listComp!)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        return CGFloat(60)
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "project_reuseIdentifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

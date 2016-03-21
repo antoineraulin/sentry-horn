@@ -19,10 +19,6 @@ class DashboardAdapter:NSObject, ListViewProtocol{
         self.context = context
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        return CGFloat(60)
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell: EventCell = EventCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "dashboard_reuseIdentifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

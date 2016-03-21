@@ -10,10 +10,20 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
-class LoginViewController: BaseWebViewController {
+class LoginViewController: BaseViewController,WebViewProtocol {
+    
+    var url:String = ""
+    var webView:WebViewComponent?
     
     override func initController() {
         url = Constants.Host+Constants.Web.Login
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webView = WebViewComponent(adapter: self, url: self.url)
+        webView!.view.frame = self.view.bounds
+        self.addComponent(webView!)
     }
     
     override func viewWillAppear(animated: Bool) {

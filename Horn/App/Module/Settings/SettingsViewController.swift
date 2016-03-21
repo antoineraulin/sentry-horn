@@ -32,10 +32,6 @@ class SettingsViewController: BaseViewController, ListViewProtocol {
         listComp?.didMoveToParentViewController(self)
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        return CGFloat(60)
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "settings_identifier")
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator

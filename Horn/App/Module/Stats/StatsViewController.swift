@@ -8,7 +8,10 @@
 
 import UIKit
 
-class StatsViewController: BaseWebViewController {
+class StatsViewController: BaseViewController,WebViewProtocol {
+    
+    var url:String = ""
+    var webView:WebViewComponent?
     
     override func initController() {
         url = Constants.Host+Constants.Web.Stats
@@ -17,6 +20,13 @@ class StatsViewController: BaseWebViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Stats"
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        webView = WebViewComponent(adapter: self, url: self.url)
+        webView!.view.frame = self.view.bounds
+        self.addComponent(webView!)
     }
     
     override func didReceiveMemoryWarning() {
