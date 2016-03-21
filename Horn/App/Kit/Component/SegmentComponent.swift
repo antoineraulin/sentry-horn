@@ -23,11 +23,8 @@ class SegmentComponent:BaseViewController {
         self.titles = titles
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func didMoveToParentViewController(parent: UIViewController?){
+        super.didMoveToParentViewController(parent)
         self.initSegment()
     }
 

@@ -28,6 +28,7 @@ class WebViewComponent: BaseViewController, UIWebViewDelegate {
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
+        super.didMoveToParentViewController(parent)
         webView.frame = self.view.bounds
         webView.scrollView.contentSize.width = _viewWidth
         webView.delegate=self

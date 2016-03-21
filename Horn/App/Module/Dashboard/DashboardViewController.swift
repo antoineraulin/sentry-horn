@@ -23,11 +23,11 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addSegment()
+        self.addSegmented()
         self.addSubControllers()
     }
     
-    func addSegment(){
+    func addSegmented(){
         let segmented = SegmentComponent(adapter:self, titles:titles)
         segmented.view.frame = CGRectMake(0, _naviHeight, _viewWidth, 40)
         self.addComponent(segmented)

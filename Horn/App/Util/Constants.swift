@@ -27,23 +27,25 @@ struct Color {
 struct Constants {
     
     // Default Organization
+//    static var CurrentOrganization = "sentry-sc"
     static var CurrentOrganization = "sentry"
 
     // Default Host
     static let Host = "http://sentry.gengmei.cc"
+//    static let Host = "https://app.getsentry.com"
 
     struct Web {
-        static let Root = "/"
-        static let Login = "/auth/login/sentry/"
-        static let Stats = "/organizations/\(CurrentOrganization)/stats/"
+        static let Root = Host+"/"
+        static let Login = Host+"/auth/login/\(CurrentOrganization)/"
+        static let Stats = Host+"/organizations/\(CurrentOrganization)/stats/"
     }
     
     struct API {
-        static let Organizations = "/api/0/organizations/"
-        static let Projects = "/api/0/organizations/\(CurrentOrganization)/projects/"
-        static let New = "/api/0/organizations/\(CurrentOrganization)/issues/new/"
-        static let Assigned = "/api/0/organizations/\(CurrentOrganization)/members/me/issues/assigned/"
-        static let Events = "/api/0/projects/\(CurrentOrganization)/%@/issues/"
+        static let Organizations = Host+"/api/0/organizations/"
+        static let Projects = Host+"/api/0/organizations/\(CurrentOrganization)/projects/"
+        static let New = Host+"/api/0/organizations/\(CurrentOrganization)/issues/new/"
+        static let Assigned = Host+"/api/0/organizations/\(CurrentOrganization)/members/me/issues/assigned/"
+        static let Events = Host+"/api/0/projects/\(CurrentOrganization)/%@/issues/"
     }
     
     struct Notification {

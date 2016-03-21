@@ -43,6 +43,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         super.didMoveToParentViewController(parent)
+        
         self.addKVO()
         
         tableView = UITableView(frame: self.view.bounds, style: tableStyle)
@@ -58,6 +59,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         if (needFooterRefresh) {
             footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefreshing"))
             self.tableView.mj_footer = footer
+            self.tableView.mj_footer.hidden = true
         }
         
         if (fetchDataWhenInit){
@@ -121,10 +123,10 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
             if viewModel.dataArray.count > 0{
                 tableView.reloadData()
                 updateOtherUI()
-            }else{
-                if (needFooterRefresh) {
-                    tableView.mj_footer.hidden = true
+                if viewModel.dataArray.count>=10 && needFooterRefresh {
+                    tableView.mj_footer.hidden = false
                 }
+            }else{
                 self.toast("Nothing to show here, move along")
             }
         } else if newValue == FetchDataResult.Failed.rawValue {
@@ -136,11 +138,11 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         self.adapter?.updateOtherUI?()
     }
     
-    private func headerRefreshing() {
+    func headerRefreshing() {
         self.viewModel.handleHeaderRefreshing()
     }
     
-    private func footerRefreshing() {
+    func footerRefreshing() {
         self.viewModel.handleFooterRereshing()
     }
     

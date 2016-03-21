@@ -46,12 +46,12 @@ class GMNetService {
         return GMNetService()
     }()
 
-    func startRequestWithUrlString(urlString: String,
+    func startRequestWithUrlString(url: String,
                                    params: [String:AnyObject],
                                    method: HttpMethod,
                                    success: HttpSuccessBlock,
                                    failed: HttpFailedBlock) {
-        let remoteUrl = apiHost + urlString
+        let remoteUrl = url
         switch method {
         case HttpMethod.HttpMethodGet:
             Alamofire.request(.GET, remoteUrl, parameters: params).responseJSON {

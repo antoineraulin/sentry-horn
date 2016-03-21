@@ -16,7 +16,7 @@ class LoginViewController: BaseViewController,WebViewProtocol {
     var webView:WebViewComponent?
     
     override func initController() {
-        url = Constants.Host+Constants.Web.Login
+        url = Constants.Web.Login
     }
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController,WebViewProtocol {
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         debugLog(request.URL?.absoluteString)
-        if(request.URL?.absoluteString == Constants.Host+Constants.Web.Root){
+        if(request.URL?.absoluteString == Constants.Web.Root){
             AppDelegate.shareInstance().showMainView()
             return false
         }else{

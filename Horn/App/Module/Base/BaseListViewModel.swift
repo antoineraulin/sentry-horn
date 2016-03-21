@@ -60,6 +60,7 @@ class BaseListViewModel: NSObject {
 
     func handleHeaderRefreshing() {
         self.page = 1
+        self.cursor = ""
         self.fetchRemoteData()
     }
     
@@ -80,7 +81,7 @@ class BaseListViewModel: NSObject {
     }
     
     func buildRemoteUrl() {
-//        fatalError("buildRemoteUrl need override by subclass")
+        fatalError("buildRemoteUrl need override by subclass")
     }
     
     func parseLink(headers: [NSObject : AnyObject]){
