@@ -1,25 +1,25 @@
 PODS:
-  - Alamofire (3.1.5)
-  - EVReflection (2.15.6)
+  - Alamofire (3.2.1)
+  - EVReflection (2.22.0)
   - MJRefresh (3.1.0)
   - Observable-Swift (0.5.0)
-  - SnapKit (0.18.0)
+  - SnapKit (0.19.1)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.1.4)
-  - EVReflection (~> 2.15.1)
+  - Alamofire (~> 3.2.1)
+  - EVReflection (~> 2.22.0)
   - MJRefresh (~> 3.1.0)
   - Observable-Swift (~> 0.5)
-  - SnapKit (~> 0.18.0)
+  - SnapKit (~> 0.19.1)
   - SwiftyJSON (~> 2.3.2)
 
 SPEC CHECKSUMS:
-  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
-  EVReflection: 769a737f1298591bd95db5be9e5f8870d067027e
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  EVReflection: a477e3e8387c720aba2838b0c8efdf62ee15eadb
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   Observable-Swift: aecd04920b22e890f528d42f557c51c525ca79ee
-  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
+  SnapKit: eff58d6e3451bf2f482db2eccf86aecf371dc62d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

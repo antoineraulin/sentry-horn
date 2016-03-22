@@ -33,7 +33,7 @@ class MainViewController: UITabBarController,UITabBarControllerDelegate {
         
         self.setViewControllers([dashboard,projects,stats,settings], animated: false)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleLoginExpired"), name: Constants.Notification.LoginExpired, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.handleLoginExpired), name: Constants.Notification.LoginExpired, object: nil)
         
     }
     

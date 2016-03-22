@@ -52,12 +52,12 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(tableView)
         
         if (needHeaderRefresh) {
-            header.setRefreshingTarget(self, refreshingAction: Selector("headerRefreshing"))
+            header.setRefreshingTarget(self, refreshingAction: #selector(ListViewComponent.headerRefreshing))
             self.tableView.mj_header = header
         }
         
         if (needFooterRefresh) {
-            footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefreshing"))
+            footer.setRefreshingTarget(self, refreshingAction: #selector(ListViewComponent.footerRefreshing))
             self.tableView.mj_footer = footer
             self.tableView.mj_footer.hidden = true
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 @objc protocol SegmentProtocol
 {
     optional func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int)
@@ -14,7 +15,7 @@ import UIKit
 
 class SegmentComponent:BaseViewController {
 
-    var titles:[String]?
+    private var titles:[String]?
     private var adapter:SegmentProtocol?
     
     convenience init(adapter:SegmentProtocol, titles:[String]){
@@ -29,7 +30,6 @@ class SegmentComponent:BaseViewController {
     }
 
     func initSegment(){
-        debugLog(self.view.bounds)
         let segmented = YSSegmentedControl(
             frame: self.view.bounds,
             titles: self.titles!,

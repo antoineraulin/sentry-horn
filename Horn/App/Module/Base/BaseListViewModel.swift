@@ -23,25 +23,22 @@ class BaseListViewModel: NSObject {
     var message = ""
     var params: [String:AnyObject]?
     var page = 1
+    var cursor = ""
     var dataArray: Array<BaseObject> = Array<BaseObject>()
     var fetchDataResult = Observable(FetchDataResult.Normal.rawValue)
-    var cursor = ""
 
     func fetchRemoteData() {
         self.buildRemoteUrl()
         self.buildParams()
         GMNetService.sharedInstance.startRequestWithUrlString(remoteUrl, params: params!, method: HttpMethod.HttpMethodGet, success: {
             response in
-            
             if (self.remoteUrl == "") {
                 self.fetchDataResult.value = FetchDataResult.Failed.rawValue
                 return
             }
-            
             if self.shouldClearDataForResponse(response) {
                 self.clearData()
             }
-            
             let headers = response.response?.allHeaderFields
             self.parseLink(headers!)
             
@@ -84,6 +81,11 @@ class BaseListViewModel: NSObject {
         fatalError("buildRemoteUrl need override by subclass")
     }
     
+    /**
+     Parse Link and get next page's cursor
+     
+     - parameter headers: Http Header
+     */
     func parseLink(headers: [NSObject : AnyObject]){
         if (headers["Link"] != nil) {
             let link:String = headers["Link"] as! String
