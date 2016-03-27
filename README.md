@@ -11,7 +11,7 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 ## About Sentry
 [Sentry](https://github.com/getsentry/sentry) is a modern error logging and aggregation platform.
 
-## About Project
+## About The Project
 * Using Swift on MVVM without ReactiveCocoa.
 * Using container and component rather than inheritation.
 
