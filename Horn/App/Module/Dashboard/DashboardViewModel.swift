@@ -20,27 +20,12 @@ class DashboardViewModel: BaseListViewModel {
         self.type = type
     }
     
-    var _dataArray = Array<IssueObject>()
-    override var dataArray: Array<BaseObject> {
-        get {
-            return _dataArray
-        }
-        set {
-            super.dataArray = newValue
-        }
-    }
-    
     override func buildParams() {
         self.params = ["cursor": cursor,"statsPeriod":statsPeriod,"per_page":per_page,"status":status];
     }
     
     override func buildData(data: String) {
-        _dataArray = [IssueObject](json: data)
-    }
-    
-    override func clearData() {
-        super.clearData()
-        _dataArray.removeAll()
+        dataArray = [IssueObject](json: data)
     }
     
     override func buildRemoteUrl() {
@@ -52,17 +37,17 @@ class DashboardViewModel: BaseListViewModel {
     }
     
     func nameAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.title
     }
     
     func detailAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return "[\(issue.project.name)] \(issue.culprit)"
     }
     
     func permalinkAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.permalink
     }
     

@@ -8,23 +8,20 @@
 
 import Foundation
 
-class SettingsViewModel:BaseListViewModel {
-    
-    var _dataArray = Array<SettingsObject>()
+class AccountViewModel: BaseListViewModel {
     
     override func fetchRemoteData() {
-        _dataArray = [SettingsObject(title: "Sign out", detail: "")]
-        dataArray.append(BaseObject())
+        dataArray = [SimpleObject(title: "Sign out", detail: "")]
         self.fetchDataResult.value = FetchDataResult.Success.rawValue
     }
     
     func titleAtIndexPath(indexPath: NSIndexPath) -> String {
-        let settings:SettingsObject = _dataArray[indexPath.row]
+        let settings:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return settings.title
     }
     
     func detailAtIndexPath(indexPath: NSIndexPath) -> String {
-        let settings: SettingsObject = _dataArray[indexPath.row]
+        let settings:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return settings.detail
     }
     

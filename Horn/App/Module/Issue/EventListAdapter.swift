@@ -1,31 +1,22 @@
 //
-//  EventListViewController.swift
+//  EventListAdapter.swift
 //  Horn
 //
-//  Created by Thierry on 16/3/7.
+//  Created by Thierry on 16/3/30.
 //  Copyright © 2016年 Thierry. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class EventListViewController: BaseViewController, ListViewProtocol {
+class EventListApdater: NSObject, ListViewProtocol{
     
-    var project_name = ""
-    var project_slug:String = ""
-    var listComp:ListViewComponent?
+    var context:BaseViewController?
     var viewModel:EventListViewModel?
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = project_name
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        viewModel = EventListViewModel(project_slug: self.project_slug)
-        listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
-        listComp!.view.frame = self.view.bounds
-        self.addComponent(listComp!)
+    init(viewModel:EventListViewModel, context:BaseViewController){
+        self.viewModel = viewModel
+        self.context = context
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
@@ -46,11 +37,7 @@ class EventListViewController: BaseViewController, ListViewProtocol {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let event = EventDetailViewController()
         event.url = (viewModel?.permalinkAtIndexPath(indexPath))!
-        self.pushViewController(event)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        self.context?.pushViewController(event)
     }
     
 }

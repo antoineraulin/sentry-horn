@@ -44,8 +44,10 @@ struct Constants {
         static let Organizations = Host+"/api/0/organizations/"
         static let Projects = Host+"/api/0/organizations/\(CurrentOrganization)/projects/"
         static let New = Host+"/api/0/organizations/\(CurrentOrganization)/issues/new/"
-        static let Assigned = Host+"/api/0/organizations/\(CurrentOrganization)/members/me/issues/assigned/"
         static let Events = Host+"/api/0/projects/\(CurrentOrganization)/%@/issues/"
+        static let Assigned = Host+"/api/0/organizations/\(CurrentOrganization)/members/me/issues/assigned/"
+        static let Bookmarks = Host+"/api/0/organizations/\(CurrentOrganization)/members/me/issues/bookmarked/"
+        static let History = Host+"/api/0/organizations/\(CurrentOrganization)/members/me/issues/viewed/"
     }
     
     struct Notification {

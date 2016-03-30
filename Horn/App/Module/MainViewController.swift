@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController,UITabBarControllerDelegate {
+class MainViewController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -25,13 +25,16 @@ class MainViewController: UITabBarController,UITabBarControllerDelegate {
         let projects: ProjectListViewController = ProjectListViewController()
         projects.tabBarItem = UITabBarItem(title: "Projects", image: UIImage(named:"Projects"), selectedImage: UIImage(named: "ProjectsFill"))
         
+        let issues: IssuesViewController = IssuesViewController()
+        issues.tabBarItem = UITabBarItem(title: "Issues", image: UIImage(named:"Issues"), selectedImage: UIImage(named: "IssuesFill"))
+        
         let stats: StatsViewController = StatsViewController()
         stats.tabBarItem = UITabBarItem(title: "Stats", image: UIImage(named:"Stats"), selectedImage: UIImage(named: "StatsFill"))
         
-        let settings: SettingsViewController = SettingsViewController()
-        settings.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named:"Settings"), selectedImage: UIImage(named: "SettingsFill"))
+        let account: AccountViewController = AccountViewController()
+        account.tabBarItem = UITabBarItem(title: "Account", image: UIImage(named:"Account"), selectedImage: UIImage(named: "AccountFill"))
         
-        self.setViewControllers([dashboard,projects,stats,settings], animated: false)
+        self.setViewControllers([dashboard,issues,projects,stats,account], animated: false)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.handleLoginExpired), name: Constants.Notification.LoginExpired, object: nil)
         

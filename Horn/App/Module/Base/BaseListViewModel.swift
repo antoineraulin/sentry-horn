@@ -71,6 +71,7 @@ class BaseListViewModel: NSObject {
     }
 
     func clearData() {
+        dataArray.removeAll()
     }
     
     func buildData(data: String) {

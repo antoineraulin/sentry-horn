@@ -10,7 +10,6 @@ import Foundation
 
 class EventListViewModel: BaseListViewModel {
     
-    var _dataArray = Array<IssueObject>()
     var statsPeriod = "24h"
     var query = "is:unresolved"
     var limit = 25
@@ -21,26 +20,12 @@ class EventListViewModel: BaseListViewModel {
         self.project_slug = project_slug
     }
     
-    override var dataArray: Array<BaseObject> {
-        get {
-            return _dataArray
-        }
-        set {
-            super.dataArray = newValue
-        }
-    }
-    
     override func buildData(data: String) {
-        _dataArray += [IssueObject](json: data)
+        dataArray = dataArray + [IssueObject](json: data)
     }
     
     override func buildParams() {
         self.params = ["statsPeriod":statsPeriod,"query":query, "limit":limit, "cursor":cursor];
-    }
-    
-    override func clearData() {
-        super.clearData()
-        _dataArray.removeAll()
     }
     
     override func buildRemoteUrl() {
@@ -48,29 +33,29 @@ class EventListViewModel: BaseListViewModel {
     }
     
     func titleAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.culprit
     }
     
     func detailAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.title
     }
     
     func flagAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return "Events:\(issue.count)  Users:\(issue.userCount)"
     }
     
     func timeAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         let firstSeen = timeAgoSince(Helper.stringToDate(issue.firstSeen))
         let lastSeen = timeAgoSince(Helper.stringToDate(issue.lastSeen))
         return "\(lastSeen) - \(firstSeen)"
     }
     
     func levelColorAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         if issue.level == "error"{
             return Color.LevelError
         }else if issue.level == "info"{
@@ -83,7 +68,7 @@ class EventListViewModel: BaseListViewModel {
     }
     
     func permalinkAtIndexPath(indexPath: NSIndexPath) -> String {
-        let issue: IssueObject = _dataArray[indexPath.row]
+        let issue: IssueObject = dataArray[indexPath.row]  as! IssueObject
         return issue.permalink
     }
 }

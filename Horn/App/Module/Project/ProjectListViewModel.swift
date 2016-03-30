@@ -10,41 +10,26 @@ import Foundation
 
 class ProjectListViewModel: BaseListViewModel {
     
-    var _dataArray = Array<ProjectObject>()
-    override var dataArray: Array<BaseObject> {
-        get {
-            return _dataArray
-        }
-        set {
-            super.dataArray = newValue
-        }
-    }
-    
     override func buildData(data: String) {
-        _dataArray = [ProjectObject](json: data)
+        dataArray = [ProjectObject](json: data)
     }
-    
-    override func clearData() {
-        super.clearData()
-        _dataArray.removeAll()
-    }
-    
+
     override func buildRemoteUrl() {
         remoteUrl = Constants.API.Projects
     }
     
     func nameAtIndexPath(indexPath: NSIndexPath) -> String {
-        let project: ProjectObject = _dataArray[indexPath.row]
+        let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.name
     }
     
     func slugAtIndexPath(indexPath: NSIndexPath) -> String {
-        let project: ProjectObject = _dataArray[indexPath.row]
+        let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.slug
     }
     
     func detailAtIndexPath(indexPath: NSIndexPath) -> String {
-        let project: ProjectObject = _dataArray[indexPath.row]
+        let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.team.name
     }
     
