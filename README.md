@@ -5,7 +5,7 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 <img src="http://7xjlg5.com1.z0.glb.clouddn.com/2.png" width="140" />
 <img src="http://7xjlg5.com1.z0.glb.clouddn.com/3.png" width="140" />
 <img src="http://7xjlg5.com1.z0.glb.clouddn.com/4.png" width="140" />
-<img src="http://7xjlg5.com1.z0.glb.clouddn.com/5.png" width="140" />
+<img src="http://7xjlg5.com1.z0.glb.clouddn.com/8.png" width="140" />
 <img src="http://7xjlg5.com1.z0.glb.clouddn.com/7.png" width="140" />
 
 ## About Sentry
