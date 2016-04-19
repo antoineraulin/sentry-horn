@@ -13,5 +13,7 @@ func debugLog<T>(message: T,
     method: String = #function,
     line: Int = #line)
 {
+    #if DEBUG
     print("\((file as NSString).lastPathComponent)[\(line)], \(method):\n \(message)\n")
+    #endif
 }
