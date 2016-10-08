@@ -18,6 +18,9 @@ public struct Event<T>: UnownableEvent {
     
     internal var _subscriptions = [SubscriptionType]()
     
+    public init() {
+    }
+    
     public mutating func notify(value: T) {
         _subscriptions = _subscriptions.filter { $0.valid() }
         for subscription in _subscriptions {
@@ -65,14 +68,16 @@ public func += <T: UnownableEvent> (inout event: T, handler: T.ValueType -> ()) 
     return event.add(handler)
 }
 
-public func += <T: OwnableEvent> (var event: T, handler: T.ValueType -> ()) -> EventSubscription<T.ValueType> {
-    return event.add(handler)
+public func += <T: OwnableEvent> (event: T, handler: T.ValueType -> ()) -> EventSubscription<T.ValueType> {
+    var e = event
+    return e.add(handler)
 }
 
 public  func -= <T: UnownableEvent> (inout event: T, subscription: EventSubscription<T.ValueType>) {
     return event.remove(subscription)
 }
 
-public func -= <T: OwnableEvent> (var event: T, subscription: EventSubscription<T.ValueType>) {
-    return event.remove(subscription)
+public func -= <T: OwnableEvent> (event: T, subscription: EventSubscription<T.ValueType>) {
+    var e = event
+    return e.remove(subscription)
 }

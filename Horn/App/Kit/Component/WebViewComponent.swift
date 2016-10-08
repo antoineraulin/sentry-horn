@@ -47,9 +47,9 @@ class WebViewComponent: BaseViewController, UIWebViewDelegate {
         self.adapter?.webViewDidFinishLoad?(webView)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         self.hideLoading()
-        if (error?.code == NSURLErrorCancelled){
+        if (error.code == NSURLErrorCancelled){
             debugLog(self.webView.request?.URL?.absoluteString)
         }
         self.adapter?.webView?(webView, didFailLoadWithError: error)

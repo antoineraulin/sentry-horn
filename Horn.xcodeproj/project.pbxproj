@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		640D33F4DA10DB0BAD4706D0 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151E787E8FC8E7EA66500B29 /* Pods.framework */; };
+		9EF79B5448CDB38981C25E0B /* Pods_Horn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E45142FFEB771E95D598293 /* Pods_Horn.framework */; };
 		E40465891CAC10A20077BAE5 /* NSObject+FromClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40465881CAC10A20077BAE5 /* NSObject+FromClassName.swift */; };
 		E404658B1CAC11A00077BAE5 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404658A1CAC11A00077BAE5 /* BookmarksViewController.swift */; };
 		E404658D1CAC11B70077BAE5 /* BookmarksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E404658C1CAC11B70077BAE5 /* BookmarksViewModel.swift */; };
@@ -21,6 +21,12 @@
 		E444C2911C9FEDC800E7ED14 /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */; };
 		E444C2921C9FEDC800E7ED14 /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */; };
 		E444C2931C9FEDC800E7ED14 /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */; };
+		E47F68AC1DA9078C008E41A6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A61DA9078C008E41A6 /* Alamofire.framework */; };
+		E47F68AD1DA9078C008E41A6 /* EVReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A71DA9078C008E41A6 /* EVReflection.framework */; };
+		E47F68AE1DA9078C008E41A6 /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A81DA9078C008E41A6 /* MJRefresh.framework */; };
+		E47F68AF1DA9078C008E41A6 /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A91DA9078C008E41A6 /* Observable.framework */; };
+		E47F68B01DA9078C008E41A6 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68AA1DA9078C008E41A6 /* SnapKit.framework */; };
+		E47F68B11DA9078C008E41A6 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68AB1DA9078C008E41A6 /* SwiftyJSON.framework */; };
 		E48BFC9F1C9AC394002A2B1D /* DashboardAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */; };
 		E4961FB71C8EB4B80063FE86 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */; };
 		E4961FB81C8EB4B80063FE86 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */; };
@@ -78,6 +84,9 @@
 
 /* Begin PBXFileReference section */
 		151E787E8FC8E7EA66500B29 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		741E7B1F11F74B68ACACF491 /* Pods-Horn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Horn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Horn/Pods-Horn.release.xcconfig"; sourceTree = "<group>"; };
+		7E45142FFEB771E95D598293 /* Pods_Horn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Horn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97DDD3BF92566B0DAED6D3D3 /* Pods-Horn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Horn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Horn/Pods-Horn.debug.xcconfig"; sourceTree = "<group>"; };
 		E40465881CAC10A20077BAE5 /* NSObject+FromClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+FromClassName.swift"; sourceTree = "<group>"; };
 		E404658A1CAC11A00077BAE5 /* BookmarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		E404658C1CAC11B70077BAE5 /* BookmarksViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarksViewModel.swift; sourceTree = "<group>"; };
@@ -91,6 +100,12 @@
 		E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
 		E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
 		E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
+		E47F68A61DA9078C008E41A6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		E47F68A71DA9078C008E41A6 /* EVReflection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EVReflection.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/EVReflection/EVReflection.framework"; sourceTree = "<group>"; };
+		E47F68A81DA9078C008E41A6 /* MJRefresh.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MJRefresh.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/MJRefresh/MJRefresh.framework"; sourceTree = "<group>"; };
+		E47F68A91DA9078C008E41A6 /* Observable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Observable.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/Observable-Swift/Observable.framework"; sourceTree = "<group>"; };
+		E47F68AA1DA9078C008E41A6 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/SnapKit/SnapKit.framework"; sourceTree = "<group>"; };
+		E47F68AB1DA9078C008E41A6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		E48BFC9E1C9AC394002A2B1D /* DashboardAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardAdapter.swift; sourceTree = "<group>"; };
 		E4961F9F1C8EB4B80063FE86 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		E4961FA01C8EB4B80063FE86 /* DashboardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
@@ -143,7 +158,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				640D33F4DA10DB0BAD4706D0 /* Pods.framework in Frameworks */,
+				E47F68AC1DA9078C008E41A6 /* Alamofire.framework in Frameworks */,
+				E47F68AD1DA9078C008E41A6 /* EVReflection.framework in Frameworks */,
+				E47F68AE1DA9078C008E41A6 /* MJRefresh.framework in Frameworks */,
+				E47F68AF1DA9078C008E41A6 /* Observable.framework in Frameworks */,
+				E47F68B01DA9078C008E41A6 /* SnapKit.framework in Frameworks */,
+				E47F68B11DA9078C008E41A6 /* SwiftyJSON.framework in Frameworks */,
+				9EF79B5448CDB38981C25E0B /* Pods_Horn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +188,14 @@
 		8DAD3E8A55946F9B8CBC552C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E47F68A61DA9078C008E41A6 /* Alamofire.framework */,
+				E47F68A71DA9078C008E41A6 /* EVReflection.framework */,
+				E47F68A81DA9078C008E41A6 /* MJRefresh.framework */,
+				E47F68A91DA9078C008E41A6 /* Observable.framework */,
+				E47F68AA1DA9078C008E41A6 /* SnapKit.framework */,
+				E47F68AB1DA9078C008E41A6 /* SwiftyJSON.framework */,
 				151E787E8FC8E7EA66500B29 /* Pods.framework */,
+				7E45142FFEB771E95D598293 /* Pods_Horn.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +205,8 @@
 			children = (
 				FFDF17012E34E0CB2677C7B7 /* Pods.debug.xcconfig */,
 				EC662812EC5B300197340087 /* Pods.release.xcconfig */,
+				97DDD3BF92566B0DAED6D3D3 /* Pods-Horn.debug.xcconfig */,
+				741E7B1F11F74B68ACACF491 /* Pods-Horn.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -412,12 +442,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4B1A4D51C8ACE06007228D5 /* Build configuration list for PBXNativeTarget "Horn" */;
 			buildPhases = (
-				EA0A7031CA672785229C0F9C /* Check Pods Manifest.lock */,
+				EA0A7031CA672785229C0F9C /* [CP] Check Pods Manifest.lock */,
 				E4B1A4AE1C8ACE05007228D5 /* Sources */,
 				E4B1A4AF1C8ACE05007228D5 /* Frameworks */,
 				E4B1A4B01C8ACE05007228D5 /* Resources */,
-				F99164D7F080D3019AFAB447 /* Embed Pods Frameworks */,
-				253231B77624A01E2045421D /* Copy Pods Resources */,
+				F99164D7F080D3019AFAB447 /* [CP] Embed Pods Frameworks */,
+				253231B77624A01E2045421D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -476,14 +506,16 @@
 				TargetAttributes = {
 					E4B1A4B11C8ACE05007228D5 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = WVBNZ8J842;
+						LastSwiftMigration = 0800;
 					};
 					E4B1A4C01C8ACE05007228D5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E4B1A4B11C8ACE05007228D5;
 					};
 					E4B1A4CB1C8ACE06007228D5 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E4B1A4B11C8ACE05007228D5;
 					};
 				};
@@ -534,49 +566,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		253231B77624A01E2045421D /* Copy Pods Resources */ = {
+		253231B77624A01E2045421D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Horn/Pods-Horn-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EA0A7031CA672785229C0F9C /* Check Pods Manifest.lock */ = {
+		EA0A7031CA672785229C0F9C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F99164D7F080D3019AFAB447 /* Embed Pods Frameworks */ = {
+		F99164D7F080D3019AFAB447 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Horn/Pods-Horn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -750,29 +782,35 @@
 		};
 		E4B1A4D61C8ACE06007228D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFDF17012E34E0CB2677C7B7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 97DDD3BF92566B0DAED6D3D3 /* Pods-Horn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Horn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.Horn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		E4B1A4D71C8ACE06007228D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC662812EC5B300197340087 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 741E7B1F11F74B68ACACF491 /* Pods-Horn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Horn/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.Horn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -785,6 +823,7 @@
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.HornTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Horn.app/Horn";
 			};
 			name = Debug;
@@ -798,6 +837,7 @@
 				OTHER_SWIFT_FLAGS = "-D RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.HornTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Horn.app/Horn";
 			};
 			name = Release;
@@ -809,6 +849,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.HornUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Horn;
 				USES_XCTRUNNER = YES;
 			};
@@ -821,6 +862,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.HornUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = Horn;
 				USES_XCTRUNNER = YES;
 			};
