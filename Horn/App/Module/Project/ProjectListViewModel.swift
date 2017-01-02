@@ -10,7 +10,7 @@ import Foundation
 
 class ProjectListViewModel: BaseListViewModel {
     
-    override func buildData(data: String) {
+    override func buildData(_ data: String) {
         dataArray = [ProjectObject](json: data)
     }
 
@@ -18,17 +18,17 @@ class ProjectListViewModel: BaseListViewModel {
         remoteUrl = Constants.API.Projects
     }
     
-    func nameAtIndexPath(indexPath: NSIndexPath) -> String {
+    func nameAtIndexPath(_ indexPath: IndexPath) -> String {
         let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.name
     }
     
-    func slugAtIndexPath(indexPath: NSIndexPath) -> String {
+    func slugAtIndexPath(_ indexPath: IndexPath) -> String {
         let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.slug
     }
     
-    func detailAtIndexPath(indexPath: NSIndexPath) -> String {
+    func detailAtIndexPath(_ indexPath: IndexPath) -> String {
         let project: ProjectObject = dataArray[indexPath.row] as! ProjectObject
         return project.team.name
     }

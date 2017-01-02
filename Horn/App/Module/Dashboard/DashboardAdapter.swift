@@ -19,15 +19,15 @@ class DashboardAdapter:NSObject, ListViewProtocol{
         self.context = context
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: EventCell = EventCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "dashboard_reuseIdentifier")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell{
+        let cell: EventCell = EventCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "dashboard_reuseIdentifier")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         cell.textLabel?.text = viewModel?.nameAtIndexPath(indexPath)
         cell.detailTextLabel?.text = viewModel?.detailAtIndexPath(indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath){
         let event = EventDetailViewController()
         event.url = viewModel!.permalinkAtIndexPath(indexPath)
         context?.pushViewController(event)

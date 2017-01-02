@@ -15,7 +15,7 @@ class EventListViewController: BaseViewController {
     var listComp:ListViewComponent?
     var viewModel:EventListViewModel?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = project_name
     }

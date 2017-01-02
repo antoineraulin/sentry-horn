@@ -13,7 +13,7 @@ class AssignedToMeViewModel: EventListViewModel {
     let per_page = 25
     
     override func buildParams() {
-        self.params = ["statsPeriod":statsPeriod, "per_page":per_page, "cursor":cursor];
+        self.params = ["statsPeriod":statsPeriod as AnyObject, "per_page":per_page as AnyObject, "cursor":cursor as AnyObject];
     }
     
     override func buildRemoteUrl() {

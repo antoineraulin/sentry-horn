@@ -14,6 +14,6 @@ class BaseObject:EVObject {
      - parameter value:
      - parameter key:
      */
-    override func setValue(value: AnyObject!, forUndefinedKey key: String) {}
+    override func setValue(_ value: Any!, forUndefinedKey key: String) {}
     
 }

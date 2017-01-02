@@ -15,7 +15,7 @@ class BaseViewController: UIViewController {
     let _tabHeight: CGFloat = 50
     let _naviHeight: CGFloat = 64
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         initController()
     }
@@ -27,11 +27,11 @@ class BaseViewController: UIViewController {
     func initController() {
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         hideLoading()
     }
@@ -40,7 +40,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         // 必须要设置一个背景色，否则会出现tabbar残留的情况
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
 
         // Do any additional setup after loading the view.
         _viewWidth = self.view.frame.size.width
@@ -56,22 +56,22 @@ class BaseViewController: UIViewController {
         self.view.hideToastActivity()
     }
 
-    func toast(message: String) {
-        self.navigationController?.view.makeToast(message: message, duration: 1, position: HRToastPositionCenter)
+    func toast(_ message: String) {
+        self.navigationController?.view.makeToast(message: message, duration: 1, position: HRToastPositionCenter as AnyObject)
     }
 
-    func pushViewController(viewController: UIViewController) {
+    func pushViewController(_ viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     func popViewController() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     
-    func addComponent(component: UIViewController) {
+    func addComponent(_ component: UIViewController) {
         self.addChildViewController(component)
         self.view.addSubview(component.view)
-        component.didMoveToParentViewController(self)
+        component.didMove(toParentViewController: self)
     }
 
     override func didReceiveMemoryWarning() {

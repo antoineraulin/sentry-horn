@@ -28,14 +28,14 @@ public struct YSSegmentedControlAppearance {
 
 // MARK: - Control Item
 
-typealias YSSegmentedControlItemAction = (item: YSSegmentedControlItem) -> Void
+typealias YSSegmentedControlItemAction = (_ item: YSSegmentedControlItem) -> Void
 
 class YSSegmentedControlItem: UIControl {
     
     // MARK: Properties
     
-    private var willPress: YSSegmentedControlItemAction?
-    private var didPressed: YSSegmentedControlItemAction?
+    fileprivate var willPress: YSSegmentedControlItemAction?
+    fileprivate var didPressed: YSSegmentedControlItemAction?
     var label: UILabel!
     
     // MARK: Init
@@ -52,7 +52,7 @@ class YSSegmentedControlItem: UIControl {
             label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
             label.textColor = appearance.textColor
             label.font = appearance.font
-            label.textAlignment = .Center
+            label.textAlignment = .center
             label.text = text
             addSubview(label)
     }
@@ -63,12 +63,12 @@ class YSSegmentedControlItem: UIControl {
     
     // MARK: Events
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        willPress?(item: self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        willPress?(self)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        didPressed?(item: self)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        didPressed?(self)
     }
 }
 
@@ -76,20 +76,20 @@ class YSSegmentedControlItem: UIControl {
 // MARK: - Control
 
 @objc public protocol YSSegmentedControlDelegate {
-    optional func segmentedControlWillPressItemAtIndex (segmentedControl: YSSegmentedControl, index: Int)
-    optional func segmentedControlDidPressedItemAtIndex (segmentedControl: YSSegmentedControl, index: Int)
+    @objc optional func segmentedControlWillPressItemAtIndex (_ segmentedControl: YSSegmentedControl, index: Int)
+    @objc optional func segmentedControlDidPressedItemAtIndex (_ segmentedControl: YSSegmentedControl, index: Int)
 }
 
-public typealias YSSegmentedControlAction = (segmentedControl: YSSegmentedControl, index: Int) -> Void
+public typealias YSSegmentedControlAction = (_ segmentedControl: YSSegmentedControl, _ index: Int) -> Void
 
-public class YSSegmentedControl: UIView {
+open class YSSegmentedControl: UIView {
     
     // MARK: Properties
     
     weak var delegate: YSSegmentedControlDelegate?
     var action: YSSegmentedControlAction?
     
-    public var appearance: YSSegmentedControlAppearance! {
+    open var appearance: YSSegmentedControlAppearance! {
         didSet {
             self.draw()
         }
@@ -114,7 +114,7 @@ public class YSSegmentedControl: UIView {
     
     // MARK: Draw
     
-    private func reset () {
+    fileprivate func reset () {
         for sub in subviews {
             let v = sub
             v.removeFromSuperview()
@@ -122,7 +122,7 @@ public class YSSegmentedControl: UIView {
         items = []
     }
     
-    private func draw () {
+    fileprivate func draw () {
         reset()
         backgroundColor = appearance.backgroundColor
         let width = frame.size.width / CGFloat(titles.count)
@@ -137,14 +137,14 @@ public class YSSegmentedControl: UIView {
                 text: title,
                 appearance: appearance,
                 willPress: { segmentedControlItem in
-                    let index = self.items.indexOf(segmentedControlItem)!
+                    let index = self.items.index(of: segmentedControlItem)!
                     self.delegate?.segmentedControlWillPressItemAtIndex?(self, index: index)
                 },
                 didPressed: {
                     segmentedControlItem in
-                    let index = self.items.indexOf(segmentedControlItem)!
+                    let index = self.items.index(of: segmentedControlItem)!
                     self.selectItemAtIndex(index, withAnimation: true)
-                    self.action?(segmentedControl: self, index: index)
+                    self.action?(self, index)
                     self.delegate?.segmentedControlDidPressedItemAtIndex?(self, index: index)
             })
             addSubview(item)
@@ -158,7 +158,7 @@ public class YSSegmentedControl: UIView {
             y: frame.size.height - appearance.bottomLineHeight,
             width: frame.size.width,
             height: appearance.bottomLineHeight)
-        bottomLine.backgroundColor = appearance.bottomLineColor.CGColor
+        bottomLine.backgroundColor = appearance.bottomLineColor.cgColor
         layer.addSublayer(bottomLine)
         // selector
         selector = UIView (frame: CGRect (
@@ -172,16 +172,16 @@ public class YSSegmentedControl: UIView {
         selectItemAtIndex(0, withAnimation: true)
     }
     
-    private func defaultAppearance () {
+    fileprivate func defaultAppearance () {
         appearance = YSSegmentedControlAppearance(
-            backgroundColor: UIColor.clearColor(),
-            selectedBackgroundColor: UIColor.clearColor(),
-            textColor: UIColor.grayColor(),
-            font: UIFont.systemFontOfSize(15),
-            selectedTextColor: UIColor.blackColor(),
-            selectedFont: UIFont.systemFontOfSize(15),
-            bottomLineColor: UIColor.blackColor(),
-            selectorColor: UIColor.blackColor(),
+            backgroundColor: UIColor.clear,
+            selectedBackgroundColor: UIColor.clear,
+            textColor: UIColor.gray,
+            font: UIFont.systemFont(ofSize: 15),
+            selectedTextColor: UIColor.black,
+            selectedFont: UIFont.systemFont(ofSize: 15),
+            bottomLineColor: UIColor.black,
+            selectorColor: UIColor.black,
             bottomLineHeight: 0.5,
             selectorHeight: 2,
             labelTopPadding: 0)
@@ -189,7 +189,7 @@ public class YSSegmentedControl: UIView {
     
     // MARK: Select
     
-    public func selectItemAtIndex (index: Int, withAnimation: Bool) {
+    open func selectItemAtIndex (_ index: Int, withAnimation: Bool) {
         moveSelectorAtIndex(index, withAnimation: withAnimation)
         for item in items {
             if item == items[index] {
@@ -204,10 +204,10 @@ public class YSSegmentedControl: UIView {
         }
     }
     
-    private func moveSelectorAtIndex (index: Int, withAnimation: Bool) {
+    fileprivate func moveSelectorAtIndex (_ index: Int, withAnimation: Bool) {
         let width = frame.size.width / CGFloat(items.count)
         let target = width * CGFloat(index)
-        UIView.animateWithDuration(withAnimation ? 0.3 : 0,
+        UIView.animate(withDuration: withAnimation ? 0.3 : 0,
             delay: 0,
             usingSpringWithDamping: 1,
             initialSpringVelocity: 0,

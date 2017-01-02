@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Leszek Ślażyński. All rights reserved.
 //
 
-public class ObservableReference<T> : ObservableProxy<T, Observable<T>>, WritableObservable {
-    
-    public typealias ValueType = T
-    
-    internal var storage : Observable<T>
-    
-    public override var value: T {
+open class ObservableReference<T> : ObservableProxy<T, Observable<T>>, WritableObservable {
+
+  public typealias ValueType = T
+
+  internal var storage : Observable<T>
+
+  open override var value: T {
     get { return storage.value }
     set { storage.value = newValue }
-    }
-    
-    public init (_ v : T) {
-        storage = Observable(v)
-        super.init(storage)
-    }
-    
+  }
+
+  public init (_ v : T) {
+    storage = Observable(v)
+    super.init(storage)
+  }
+
 }

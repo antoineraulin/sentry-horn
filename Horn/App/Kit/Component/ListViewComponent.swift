@@ -12,10 +12,10 @@ import MJRefresh
 
 @objc protocol ListViewProtocol
 {
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    optional func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-    optional func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    optional func updateOtherUI()
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell
+    @objc optional func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat
+    @objc optional func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath)
+    @objc optional func updateOtherUI()
 }
 
 class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewDelegate
@@ -23,13 +23,13 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     var needHeaderRefresh = true
     var needFooterRefresh = true
     var fetchDataWhenInit = true
-    var tableStyle:UITableViewStyle = UITableViewStyle.Plain
+    var tableStyle:UITableViewStyle = UITableViewStyle.plain
     
-    private var tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Plain)
-    private var viewModel: BaseListViewModel = BaseListViewModel()
-    private let header = MJRefreshNormalHeader()
-    private let footer = MJRefreshAutoNormalFooter()
-    private var adapter:ListViewProtocol?
+    fileprivate var tableView = UITableView(frame: CGRect.zero, style: UITableViewStyle.plain)
+    fileprivate var viewModel: BaseListViewModel = BaseListViewModel()
+    fileprivate let header = MJRefreshNormalHeader()
+    fileprivate let footer = MJRefreshAutoNormalFooter()
+    fileprivate var adapter:ListViewProtocol?
     
     convenience init(adapter:ListViewProtocol,viewModel:BaseListViewModel){
         self.init()
@@ -41,8 +41,8 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        super.didMoveToParentViewController(parent)
+    override func didMove(toParentViewController parent: UIViewController?) {
+        super.didMove(toParentViewController: parent)
         
         self.addKVO()
         
@@ -59,7 +59,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         if (needFooterRefresh) {
             footer.setRefreshingTarget(self, refreshingAction: #selector(ListViewComponent.footerRefreshing))
             self.tableView.mj_footer = footer
-            self.tableView.mj_footer.hidden = true
+            self.tableView.mj_footer.isHidden = true
         }
         
         if (fetchDataWhenInit){
@@ -67,7 +67,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let height = self.adapter?.tableView?(tableView, heightForRowAtIndexPath: indexPath){
             return height
         }else{
@@ -75,16 +75,16 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.dataArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return self.adapter!.tableView(tableView, cellForRowAtIndexPath: indexPath)
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         self.adapter?.tableView?(tableView, didSelectRowAtIndexPath: indexPath)
     }
     
@@ -105,13 +105,13 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         viewModel.fetchRemoteData()
     }
     
-    private func addKVO() {
+    fileprivate func addKVO() {
         viewModel.fetchDataResult.afterChange += {
             self.observeHandler($1)
         }
     }
     
-    private func observeHandler(newValue: Int) {
+    fileprivate func observeHandler(_ newValue: Int) {
         self.hideLoading()
         if (needHeaderRefresh) {
             self.tableView.mj_header.endRefreshing()
@@ -119,22 +119,22 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
         if (needFooterRefresh) {
             self.tableView.mj_footer.endRefreshing()
         }
-        if newValue == FetchDataResult.Success.rawValue {
+        if newValue == FetchDataResult.success.rawValue {
             if viewModel.dataArray.count > 0{
                 tableView.reloadData()
                 updateOtherUI()
                 if viewModel.dataArray.count>=10 && needFooterRefresh {
-                    tableView.mj_footer.hidden = false
+                    tableView.mj_footer.isHidden = false
                 }
             }else{
                 self.toast("Nothing to show here, move along")
             }
-        } else if newValue == FetchDataResult.Failed.rawValue {
+        } else if newValue == FetchDataResult.failed.rawValue {
             self.toast("Get data failed")
         }
     }
     
-    private func updateOtherUI() {
+    fileprivate func updateOtherUI() {
         self.adapter?.updateOtherUI?()
     }
     

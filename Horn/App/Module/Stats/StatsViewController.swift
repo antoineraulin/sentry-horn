@@ -17,7 +17,7 @@ class StatsViewController: BaseViewController,WebViewProtocol {
         url = Constants.Web.Stats
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Stats"
     }

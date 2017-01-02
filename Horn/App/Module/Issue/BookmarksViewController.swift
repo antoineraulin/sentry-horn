@@ -13,7 +13,7 @@ class BookmarksViewController: BaseViewController {
     var viewModel:BookmarksViewModel?
     var listComp:ListViewComponent?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Bookmarks"
     }

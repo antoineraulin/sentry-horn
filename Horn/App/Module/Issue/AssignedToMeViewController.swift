@@ -13,7 +13,7 @@ class AssignedToMeViewController: BaseViewController {
     var viewModel:AssignedToMeViewModel?
     var listComp:ListViewComponent?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Assigned To Me"
     }

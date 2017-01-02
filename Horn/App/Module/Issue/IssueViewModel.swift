@@ -13,20 +13,20 @@ class IssueViewModel: BaseListViewModel {
         dataArray = [SimpleObject(title: "Assigned To Me", viewController: "AssignedToMeViewController"),
                      SimpleObject(title: "Bookmarks", viewController: "BookmarksViewController"),
                      SimpleObject(title: "History", viewController: "HistoryViewController")]
-        self.fetchDataResult.value = FetchDataResult.Success.rawValue
+        self.fetchDataResult.value = FetchDataResult.success.rawValue
     }
     
-    func titleAtIndexPath(indexPath: NSIndexPath) -> String {
+    func titleAtIndexPath(_ indexPath: IndexPath) -> String {
         let object:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return object.title
     }
     
-    func detailAtIndexPath(indexPath: NSIndexPath) -> String {
+    func detailAtIndexPath(_ indexPath: IndexPath) -> String {
         let object:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return object.detail
     }
     
-    func viewControllerAtIndexPath(indexPath: NSIndexPath) -> String{
+    func viewControllerAtIndexPath(_ indexPath: IndexPath) -> String{
         let object:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return object.viewController
     }

@@ -21,10 +21,10 @@ class DashboardViewModel: BaseListViewModel {
     }
     
     override func buildParams() {
-        self.params = ["cursor": cursor,"statsPeriod":statsPeriod,"per_page":per_page,"status":status];
+        self.params = ["cursor": cursor as AnyObject,"statsPeriod":statsPeriod as AnyObject,"per_page":per_page as AnyObject,"status":status as AnyObject];
     }
     
-    override func buildData(data: String) {
+    override func buildData(_ data: String) {
         dataArray = [IssueObject](json: data)
     }
     
@@ -36,17 +36,17 @@ class DashboardViewModel: BaseListViewModel {
         }
     }
     
-    func nameAtIndexPath(indexPath: NSIndexPath) -> String {
+    func nameAtIndexPath(_ indexPath: IndexPath) -> String {
         let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.title
     }
     
-    func detailAtIndexPath(indexPath: NSIndexPath) -> String {
+    func detailAtIndexPath(_ indexPath: IndexPath) -> String {
         let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return "[\(issue.project.name)] \(issue.culprit)"
     }
     
-    func permalinkAtIndexPath(indexPath: NSIndexPath) -> String {
+    func permalinkAtIndexPath(_ indexPath: IndexPath) -> String {
         let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         return issue.permalink
     }

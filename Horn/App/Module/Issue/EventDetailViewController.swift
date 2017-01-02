@@ -13,7 +13,7 @@ class EventDetailViewController: BaseViewController,WebViewProtocol {
     var url:String = ""
     var webView:WebViewComponent?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Event Detail"
     }

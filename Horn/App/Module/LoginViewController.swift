@@ -26,14 +26,14 @@ class LoginViewController: BaseViewController,WebViewProtocol {
         self.addComponent(webView!)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Login"
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        debugLog(request.URL?.absoluteString)
-        if(request.URL?.absoluteString == Constants.Web.Root){
+    func webView(_ webView: UIWebView, shouldStartLoadWithRequest request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        debugLog(request.url?.absoluteString)
+        if(request.url?.absoluteString == Constants.Web.OrganizationsRoot){
             AppDelegate.shareInstance().showMainView()
             return false
         }else{

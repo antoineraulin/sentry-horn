@@ -19,13 +19,13 @@ class EventListApdater: NSObject, ListViewProtocol{
         self.context = context
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+    func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: IndexPath) -> CGFloat{
         return CGFloat(90)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: EventCell = EventCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "event_reuseIdentifier")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell{
+        let cell: EventCell = EventCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "event_reuseIdentifier")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         cell.titleLabel.text = viewModel?.titleAtIndexPath(indexPath)
         cell.detailLabel.text = viewModel?.detailAtIndexPath(indexPath)
         cell.flagLabel.text = viewModel?.flagAtIndexPath(indexPath)
@@ -34,7 +34,7 @@ class EventListApdater: NSObject, ListViewProtocol{
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath){
         let event = EventDetailViewController()
         event.url = (viewModel?.permalinkAtIndexPath(indexPath))!
         self.context?.pushViewController(event)

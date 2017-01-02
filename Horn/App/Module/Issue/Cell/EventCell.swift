@@ -27,50 +27,50 @@ class EventCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        levelView.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.contentView.snp_top)
-            make.left.equalTo(self.contentView.snp_left)
-            make.bottom.equalTo(self.contentView.snp_bottom)
+        levelView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.contentView.snp.top)
+            make.left.equalTo(self.contentView.snp.left)
+            make.bottom.equalTo(self.contentView.snp.bottom)
             make.width.equalTo(2)
         }
         
         titleLabel.numberOfLines = 1
-        titleLabel.font = UIFont.systemFontOfSize(12)
+        titleLabel.font = UIFont.systemFont(ofSize: 12)
         titleLabel.textColor = UIColor(rgba: Color.FontGray)
-        titleLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.contentView.snp_top).offset(5)
-            make.left.equalTo(levelView.snp_right).offset(5)
-            make.right.equalTo(self.contentView.snp_right).offset(-5)
+        titleLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(self.contentView.snp.top).offset(5)
+            make.left.equalTo(levelView.snp.right).offset(5)
+            make.right.equalTo(self.contentView.snp.right).offset(-5)
             make.height.equalTo(13)
         }
         
         detailLabel.numberOfLines = 1
-        detailLabel.font = UIFont.systemFontOfSize(14)
+        detailLabel.font = UIFont.systemFont(ofSize: 14)
         detailLabel.textColor = UIColor(rgba: Color.FontBlack)
-        detailLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(titleLabel.snp_bottom).offset(10)
-            make.left.equalTo(titleLabel.snp_left)
-            make.right.equalTo(self.contentView.snp_right).offset(-5)
+        detailLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.left.equalTo(titleLabel.snp.left)
+            make.right.equalTo(self.contentView.snp.right).offset(-5)
             make.height.equalTo(15)
         }
         
         flagLabel.numberOfLines = 1
-        flagLabel.font = UIFont.systemFontOfSize(10)
+        flagLabel.font = UIFont.systemFont(ofSize: 10)
         flagLabel.textColor = UIColor(rgba: Color.FontLightGray)
-        flagLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(detailLabel.snp_bottom).offset(10)
-            make.left.equalTo(detailLabel.snp_left)
-            make.right.equalTo(self.contentView.snp_right).offset(-5)
+        flagLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(detailLabel.snp.bottom).offset(10)
+            make.left.equalTo(detailLabel.snp.left)
+            make.right.equalTo(self.contentView.snp.right).offset(-5)
             make.height.equalTo(11)
         }
         
         timeLabel.numberOfLines = 1
-        timeLabel.font = UIFont.systemFontOfSize(10)
+        timeLabel.font = UIFont.systemFont(ofSize: 10)
         timeLabel.textColor = UIColor(rgba: Color.FontLightGray)
-        timeLabel.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(flagLabel.snp_bottom).offset(10)
-            make.left.equalTo(flagLabel.snp_left)
-            make.right.equalTo(self.contentView.snp_right).offset(-5)
+        timeLabel.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(flagLabel.snp.bottom).offset(10)
+            make.left.equalTo(flagLabel.snp.left)
+            make.right.equalTo(self.contentView.snp.right).offset(-5)
             make.height.equalTo(11)
         }
     }
@@ -84,7 +84,7 @@ class EventCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

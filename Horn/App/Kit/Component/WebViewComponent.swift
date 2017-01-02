@@ -9,17 +9,17 @@
 import UIKit
 
 @objc protocol WebViewProtocol{
-    optional func webViewDidStartLoad(webView: UIWebView)
-    optional func webViewDidFinishLoad(webView: UIWebView)
-    optional func webView(webView: UIWebView, didFailLoadWithError error: NSError?)
-    optional func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool
+    @objc optional func webViewDidStartLoad(_ webView: UIWebView)
+    @objc optional func webViewDidFinishLoad(_ webView: UIWebView)
+    @objc optional func webView(_ webView: UIWebView, didFailLoadWithError error: NSError?)
+    @objc optional func webView(_ webView: UIWebView, shouldStartLoadWithRequest request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool
 }
 
 class WebViewComponent: BaseViewController, UIWebViewDelegate {
     
-    private var url:String = ""
-    private var adapter:WebViewProtocol?
-    private let webView:UIWebView = UIWebView(frame: CGRectZero)
+    fileprivate var url:String = ""
+    fileprivate var adapter:WebViewProtocol?
+    fileprivate let webView:UIWebView = UIWebView(frame: CGRect.zero)
     
     convenience init(adapter:WebViewProtocol, url:String) {
         self.init()
@@ -27,36 +27,36 @@ class WebViewComponent: BaseViewController, UIWebViewDelegate {
         self.adapter = adapter
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        super.didMoveToParentViewController(parent)
+    override func didMove(toParentViewController parent: UIViewController?) {
+        super.didMove(toParentViewController: parent)
         webView.frame = self.view.bounds
         webView.scrollView.contentSize.width = _viewWidth
         webView.delegate=self
         webView.scalesPageToFit = true;
         self.view.addSubview(webView)
-        webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+        webView.loadRequest(URLRequest(url: URL(string: url)!))
     }
     
-    func webViewDidStartLoad(webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         self.showLoading()
         self.adapter?.webViewDidStartLoad?(webView)
     }
     
-    func webViewDidFinishLoad(webView: UIWebView){
+    func webViewDidFinishLoad(_ webView: UIWebView){
         self.hideLoading()
         self.adapter?.webViewDidFinishLoad?(webView)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
         self.hideLoading()
-        if (error.code == NSURLErrorCancelled){
-            debugLog(self.webView.request?.URL?.absoluteString)
+        if (error._code == NSURLErrorCancelled){
+            debugLog(self.webView.request?.url?.absoluteString)
         }
-        self.adapter?.webView?(webView, didFailLoadWithError: error)
+        self.adapter?.webView?(webView, didFailLoadWithError: error as NSError?)
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        debugLog(request.URL?.absoluteString)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        debugLog(request.url?.absoluteString)
         if let shouldStart = self.adapter?.webView?(webView, shouldStartLoadWithRequest: request, navigationType: navigationType){
             return shouldStart
         }else{

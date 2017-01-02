@@ -13,7 +13,7 @@ class ProjectListViewController: BaseViewController, ListViewProtocol  {
     var listComp:ListViewComponent?
     var viewModel:ProjectListViewModel?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Projects"
     }
@@ -26,15 +26,15 @@ class ProjectListViewController: BaseViewController, ListViewProtocol  {
         self.addComponent(listComp!)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "project_reuseIdentifier")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "project_reuseIdentifier")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         cell.textLabel?.text = viewModel!.nameAtIndexPath(indexPath)
         cell.detailTextLabel?.text = viewModel!.detailAtIndexPath(indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         let event = EventListViewController()
         event.project_name = viewModel!.nameAtIndexPath(indexPath)
         event.project_slug = viewModel!.slugAtIndexPath(indexPath)

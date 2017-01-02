@@ -1,7 +1,7 @@
 //
-//  SnapKit
+//  DispatchQueue+Alamofire.swift
 //
-//  Copyright (c) 2011-2015 SnapKit Team - https://github.com/SnapKit
+//  Copyright (c) 2014-2016 Alamofire Software Foundation (http://alamofire.org/)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -20,26 +20,24 @@
 //  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
+//
 
-#if os(iOS) || os(tvOS)
-import UIKit
+import Dispatch
+import Foundation
 
-/**
-    Used to expose public API on view controllers
-*/
-public extension UIViewController {
-    
-    /// top layout guide top
-    public var snp_topLayoutGuideTop: ConstraintItem { return ConstraintItem(object: self.topLayoutGuide, attributes: ConstraintAttributes.Top) }
-    
-    /// top layout guide bottom
-    public var snp_topLayoutGuideBottom: ConstraintItem { return ConstraintItem(object: self.topLayoutGuide, attributes: ConstraintAttributes.Bottom) }
-    
-    /// bottom layout guide top
-    public var snp_bottomLayoutGuideTop: ConstraintItem { return ConstraintItem(object: self.bottomLayoutGuide, attributes: ConstraintAttributes.Top) }
-    
-    /// bottom layout guide bottom
-    public var snp_bottomLayoutGuideBottom: ConstraintItem { return ConstraintItem(object: self.bottomLayoutGuide, attributes: ConstraintAttributes.Bottom) }
-    
+extension DispatchQueue {
+    static var userInteractive: DispatchQueue { return DispatchQueue.global(qos: .userInteractive) }
+    static var userInitiated: DispatchQueue { return DispatchQueue.global(qos: .userInitiated) }
+    static var utility: DispatchQueue { return DispatchQueue.global(qos: .utility) }
+    static var background: DispatchQueue { return DispatchQueue.global(qos: .background) }
+
+    func after(_ delay: TimeInterval, execute closure: @escaping () -> Void) {
+        asyncAfter(deadline: .now() + delay, execute: closure)
+    }
+
+    func syncResult<T>(_ closure: () -> T) -> T {
+        var result: T!
+        sync { result = closure() }
+        return result
+    }
 }
-#endif

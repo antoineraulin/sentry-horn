@@ -11,8 +11,8 @@ import UIKit
 
 extension NSObject {
     
-    class func fromClassName(className : String) -> NSObject {
-        let className = NSBundle.mainBundle().infoDictionary!["CFBundleName"] as! String + "." + className
+    class func fromClassName(_ className : String) -> NSObject {
+        let className = Bundle.main.infoDictionary!["CFBundleName"] as! String + "." + className
         let aClass = NSClassFromString(className) as! UIViewController.Type
         return aClass.init()
     }

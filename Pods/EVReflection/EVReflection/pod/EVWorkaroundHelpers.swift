@@ -16,27 +16,12 @@ public protocol EVGenericsKVC {
     /**
      Implement this protocol in a class with generic properties so that we can still use a standard mechanism for setting property values.
      */
-    func setValue(value: AnyObject!, forUndefinedKey key: String)
-}
-
-/**
- Protocol for the workaround when using an enum with a rawValue of type Int
- */
-public protocol EVRawInt {
+    func setGenericValue(_ value: AnyObject!, forUndefinedKey key: String)
+    
     /**
-     Protocol EVRawString can be added to an Enum that has Int as it's rawValue so that we can detect from a generic enum what it's rawValue is.
+     Add a function so that we can get an instance of T
      */
-    var rawValue: Int { get }
-}
-
-/**
- Protocol for the workaround when using an enum with a rawValue of type String
- */
-public protocol EVRawString {
-    /**
-     Protocol EVRawString can be added to an Enum that has String as it's rawValue so that we can detect from a generic enum what it's rawValue is.
-     */
-    var rawValue: String { get }
+    func getGenericType() -> NSObject
 }
 
 /**
@@ -50,13 +35,24 @@ public protocol EVRaw {
 }
 
 /**
+ Default implementation for getting the rawValue for any other type
+ */
+extension EVRaw where Self: RawRepresentable {
+    var anyRawValue: Any {
+        get {
+            return rawValue as Any
+        }
+    }
+}
+
+/**
  Protocol for the workaround when using an array with nullable values
  */
 public protocol EVArrayConvertable {
     /**
      For implementing a function for converting a generic array to a specific array.
      */
-    func convertArray(key: String, array: Any) -> NSArray
+    func convertArray(_ key: String, array: Any) -> NSArray
 }
 
 
@@ -86,7 +82,6 @@ public extension EVAssociated {
         }
     }
 }
-
 
 /**
  Dictionary extension for creating a dictionary from an array of enum values

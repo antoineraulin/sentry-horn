@@ -10,13 +10,13 @@ import UIKit
 
 @objc protocol SegmentProtocol
 {
-    optional func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int)
+    @objc optional func segmentSelect(_ sender: YSSegmentedControl, selectedSegmentIndex: Int)
 }
 
 class SegmentComponent:BaseViewController {
 
-    private var titles:[String]?
-    private var adapter:SegmentProtocol?
+    fileprivate var titles:[String]?
+    fileprivate var adapter:SegmentProtocol?
     
     convenience init(adapter:SegmentProtocol, titles:[String]){
         self.init()
@@ -24,8 +24,8 @@ class SegmentComponent:BaseViewController {
         self.titles = titles
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?){
-        super.didMoveToParentViewController(parent)
+    override func didMove(toParentViewController parent: UIViewController?){
+        super.didMove(toParentViewController: parent)
         self.initSegment()
     }
 
@@ -40,14 +40,14 @@ class SegmentComponent:BaseViewController {
         self.view.addSubview(segmented)
         
         segmented.appearance = YSSegmentedControlAppearance(
-            backgroundColor: UIColor.whiteColor(),
-            selectedBackgroundColor: UIColor.whiteColor(),
+            backgroundColor: UIColor.white,
+            selectedBackgroundColor: UIColor.white,
             
             textColor: UIColor(rgba: Color.FontGray),
-            font: UIFont.systemFontOfSize(14),
+            font: UIFont.systemFont(ofSize: 14),
             
             selectedTextColor: UIColor(rgba: Color.FontBlack),
-            selectedFont: UIFont.systemFontOfSize(14),
+            selectedFont: UIFont.systemFont(ofSize: 14),
             
             bottomLineColor: UIColor(rgba: Color.LineGray),
             selectorColor: UIColor(rgba:Color.Blue),
@@ -58,7 +58,7 @@ class SegmentComponent:BaseViewController {
         )
     }
     
-    func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int) {
+    func segmentSelect(_ sender: YSSegmentedControl, selectedSegmentIndex: Int) {
         self.adapter?.segmentSelect?(sender, selectedSegmentIndex: selectedSegmentIndex)
     }
 }

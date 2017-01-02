@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UITabBarController, UITabBarControllerDelegate {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
@@ -36,7 +36,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         self.setViewControllers([dashboard,issues,projects,stats,account], animated: false)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.handleLoginExpired), name: Constants.Notification.LoginExpired, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.handleLoginExpired), name: NSNotification.Name(rawValue: Constants.Notification.LoginExpired), object: nil)
         
     }
     
@@ -49,7 +49,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
 }

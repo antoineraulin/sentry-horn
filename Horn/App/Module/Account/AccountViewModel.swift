@@ -12,15 +12,15 @@ class AccountViewModel: BaseListViewModel {
     
     override func fetchRemoteData() {
         dataArray = [SimpleObject(title: "Sign out", detail: "")]
-        self.fetchDataResult.value = FetchDataResult.Success.rawValue
+        self.fetchDataResult.value = FetchDataResult.success.rawValue
     }
     
-    func titleAtIndexPath(indexPath: NSIndexPath) -> String {
+    func titleAtIndexPath(_ indexPath: IndexPath) -> String {
         let settings:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return settings.title
     }
     
-    func detailAtIndexPath(indexPath: NSIndexPath) -> String {
+    func detailAtIndexPath(_ indexPath: IndexPath) -> String {
         let settings:SimpleObject = dataArray[indexPath.row] as! SimpleObject
         return settings.detail
     }

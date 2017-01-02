@@ -16,7 +16,7 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     var currentComp:ListViewComponent?
     let titles = ["Assigned","New"]
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Dashboard"
     }
@@ -29,19 +29,19 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
     
     func addSegmented(){
         let segmented = SegmentComponent(adapter:self, titles:titles)
-        segmented.view.frame = CGRectMake(0, _naviHeight, _viewWidth, 40)
+        segmented.view.frame = CGRect(x: 0, y: _naviHeight, width: _viewWidth, height: 40)
         self.addComponent(segmented)
     }
     
     func addSubControllers(){
-        for (index, title) in titles.enumerate()
+        for (index, title) in titles.enumerated()
         {
             let viewModel = DashboardViewModel(type: title)
             let adapter = DashboardAdapter(viewModel:viewModel, context: self)
             let listComp = ListViewComponent(adapter: adapter, viewModel: viewModel)
             listComp.fetchDataWhenInit = false
-            listComp.view.hidden = true
-            listComp.view.frame = CGRectMake(0, 40 + _naviHeight, _viewWidth, _viewHeight - _tabHeight - _naviHeight)
+            listComp.view.isHidden = true
+            listComp.view.frame = CGRect(x: 0, y: 40 + _naviHeight, width: _viewWidth, height: _viewHeight - _tabHeight - _naviHeight)
             self.addComponent(listComp)
             
             listComps.append(listComp)
@@ -53,25 +53,25 @@ class DashboardViewController: BaseViewController,SegmentProtocol {
                 currentViewModel = viewModel
             }
         }
-        currentComp?.view.hidden = false
+        currentComp?.view.isHidden = false
         currentComp?.fetchData()
     }
     
-    func segmentSelect(sender: YSSegmentedControl, selectedSegmentIndex: Int) {
+    func segmentSelect(_ sender: YSSegmentedControl, selectedSegmentIndex: Int) {
         currentViewModel = viewModels[selectedSegmentIndex]
         self.transitionViewController(currentComp!, newController: listComps[selectedSegmentIndex])
     }
     
-    func transitionViewController(oldController:ListViewComponent, newController:ListViewComponent){
-        self.transitionFromViewController(oldController, toViewController: newController, duration: 0.1, options: UIViewAnimationOptions.TransitionNone, animations: nil) { (finished) -> Void in
+    func transitionViewController(_ oldController:ListViewComponent, newController:ListViewComponent){
+        self.transition(from: oldController, to: newController, duration: 0.1, options: UIViewAnimationOptions(), animations: nil) { (finished) -> Void in
             if (finished) {
-                oldController.view.hidden = true
+                oldController.view.isHidden = true
                 self.currentComp = newController
-                self.currentComp?.view.hidden = false
+                self.currentComp?.view.isHidden = false
                 self.currentComp?.fetchData()
             }else{
                 self.currentComp = oldController
-                oldController.view.hidden = false
+                oldController.view.isHidden = false
             }
         }
     }

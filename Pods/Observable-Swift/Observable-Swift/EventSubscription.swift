@@ -17,53 +17,53 @@
 // Invalidation immediately frees handler and owned objects.
 
 /// A class representing a subscription for `Event<T>`.
-public class EventSubscription<T> {
-    
-    public typealias HandlerType = T -> ()
-    
-    internal var _valid : () -> Bool
-    
-    /// Handler to be caled when value changes.
-    internal var handler : HandlerType
-    
-    /// array of owned objects
-    internal var _owned = [AnyObject]()
-    
-    /// When invalid subscription is to be notified, it is removed instead.
-    public func valid() -> Bool {
-        if !_valid() {
-            invalidate()
-            return false
-        } else {
-            return true
-        }
+open class EventSubscription<T> {
+
+  public typealias HandlerType = (T) -> ()
+
+  internal var _valid : () -> Bool
+
+  /// Handler to be caled when value changes.
+  internal var handler : HandlerType
+
+  /// array of owned objects
+  internal var _owned = [AnyObject]()
+
+  /// When invalid subscription is to be notified, it is removed instead.
+  open func valid() -> Bool {
+    if !_valid() {
+      invalidate()
+      return false
+    } else {
+      return true
     }
-    
-    /// Marks the event for removal, frees the handler and owned objects
-    public func invalidate() {
-        _valid = { false }
-        handler = { _ in () }
-        _owned = []
+  }
+
+  /// Marks the event for removal, frees the handler and owned objects
+  open func invalidate() {
+    _valid = { false }
+    handler = { _ in () }
+    _owned = []
+  }
+
+  /// Init with a handler and an optional owner.
+  /// If owner is present, valid() is tied to its lifetime.
+  public init(owner o: AnyObject?, handler h: @escaping HandlerType) {
+    if o == nil {
+      _valid = { true }
+    } else {
+      _valid = { [weak o] in o != nil }
     }
-    
-    /// Init with a handler and an optional owner.
-    /// If owner is present, valid() is tied to its lifetime.
-    public init(owner o: AnyObject?, handler h: HandlerType) {
-        if o == nil {
-            _valid = { true }
-        } else {
-            _valid = { [weak o] in o != nil }
-        }
-        handler = h
-    }
-    
-    /// Add an object to be owned while the event is not invalidated
-    public func addOwnedObject(o: AnyObject) {
-        _owned.append(o)
-    }
-    
-    /// Remove object from owned objects
-    public func removeOwnedObject(o: AnyObject) {
-        _owned = _owned.filter{ $0 !== o }
-    }
+    handler = h
+  }
+
+  /// Add an object to be owned while the event is not invalidated
+  open func addOwnedObject(_ o: AnyObject) {
+    _owned.append(o)
+  }
+
+  /// Remove object from owned objects
+  open func removeOwnedObject(_ o: AnyObject) {
+    _owned = _owned.filter{ $0 !== o }
+  }
 }

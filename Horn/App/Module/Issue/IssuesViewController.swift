@@ -12,7 +12,7 @@ class IssuesViewController: BaseViewController, ListViewProtocol {
     var viewModel:IssueViewModel?
     var listComp:ListViewComponent?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.title = "Account"
     }
@@ -23,20 +23,20 @@ class IssuesViewController: BaseViewController, ListViewProtocol {
         listComp = ListViewComponent(adapter: self, viewModel: viewModel!)
         listComp?.needFooterRefresh = false
         listComp?.needHeaderRefresh = false
-        listComp?.tableStyle = UITableViewStyle.Grouped
+        listComp?.tableStyle = UITableViewStyle.grouped
         listComp?.view.frame = self.view.bounds
         self.addComponent(listComp!)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "account_identifier")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "account_identifier")
+        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         cell.textLabel?.text = viewModel?.titleAtIndexPath(indexPath)
         cell.detailTextLabel?.text = viewModel?.detailAtIndexPath(indexPath)
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         let className = self.viewModel?.viewControllerAtIndexPath(indexPath)
         let viewController = NSObject.fromClassName(className!) as! UIViewController
         self.pushViewController(viewController)

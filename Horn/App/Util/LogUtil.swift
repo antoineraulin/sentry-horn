@@ -8,7 +8,7 @@
 
 import Foundation
 
-func debugLog<T>(message: T,
+func debugLog<T>(_ message: T,
     file: String = #file,
     method: String = #function,
     line: Int = #line)

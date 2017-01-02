@@ -10,10 +10,10 @@ import Foundation
 
 class Helper {
     
-    class func stringToDate(dateStr:String) -> NSDate{
-        let dateFormatter = NSDateFormatter()
+    class func stringToDate(_ dateStr:String) -> Date{
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        let date = dateFormatter.dateFromString(dateStr)
+        let date = dateFormatter.date(from: dateStr)
         return date!
     }
     
