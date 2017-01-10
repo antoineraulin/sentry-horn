@@ -13,6 +13,7 @@ Swift based getsentry/sentry ios client, now you can care about your server's er
 
 ## About The Project
 * Using Swift on MVVM without ReactiveCocoa.
+* Using Moya+Alamofire+EVReflection
 * Using container and component rather than inheritation.
 
 ## Feature List
