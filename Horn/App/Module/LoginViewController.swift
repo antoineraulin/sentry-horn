@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 import SwiftyJSON
 
-class LoginViewController: BaseViewController,WebViewProtocol {
+class LoginViewController: BaseViewController, WebViewProtocol {
     
     var url:String = ""
     var webView:WebViewComponent?
     
     override func initController() {
-        url = Constants.Web.Login
+        url = Constants.Web.login
     }
     
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class LoginViewController: BaseViewController,WebViewProtocol {
     
     func webView(_ webView: UIWebView, shouldStartLoadWithRequest request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         debugLog(request.url?.absoluteString)
-        if(request.url?.absoluteString == Constants.Web.OrganizationsRoot){
+        if(request.url?.absoluteString == Constants.Web.organizationsRoot){
             AppDelegate.shareInstance().showMainView()
             return false
         }else{

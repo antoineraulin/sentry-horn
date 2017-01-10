@@ -36,8 +36,8 @@ class ProjectListViewController: BaseViewController, ListViewProtocol  {
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         let event = EventListViewController()
-        event.project_name = viewModel!.nameAtIndexPath(indexPath)
-        event.project_slug = viewModel!.slugAtIndexPath(indexPath)
+        event.projectName = viewModel!.nameAtIndexPath(indexPath)
+        event.projectSlug = viewModel!.slugAtIndexPath(indexPath)
         self.pushViewController(event)
     }
     

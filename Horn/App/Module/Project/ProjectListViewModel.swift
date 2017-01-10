@@ -13,9 +13,9 @@ class ProjectListViewModel: BaseListViewModel {
     override func buildData(_ data: String) {
         dataArray = [ProjectObject](json: data)
     }
-
-    override func buildRemoteUrl() {
-        remoteUrl = Constants.API.Projects
+    
+    override func buildAPI() -> GMNetWorkingAPI {
+        return .projects()
     }
     
     func nameAtIndexPath(_ indexPath: IndexPath) -> String {

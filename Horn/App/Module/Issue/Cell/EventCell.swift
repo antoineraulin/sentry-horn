@@ -36,7 +36,7 @@ class EventCell: UITableViewCell {
         
         titleLabel.numberOfLines = 1
         titleLabel.font = UIFont.systemFont(ofSize: 12)
-        titleLabel.textColor = UIColor(rgba: Color.FontGray)
+        titleLabel.textColor = UIColor(rgba: Color.fontGray)
         titleLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(self.contentView.snp.top).offset(5)
             make.left.equalTo(levelView.snp.right).offset(5)
@@ -46,7 +46,7 @@ class EventCell: UITableViewCell {
         
         detailLabel.numberOfLines = 1
         detailLabel.font = UIFont.systemFont(ofSize: 14)
-        detailLabel.textColor = UIColor(rgba: Color.FontBlack)
+        detailLabel.textColor = UIColor(rgba: Color.fontBlack)
         detailLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.left.equalTo(titleLabel.snp.left)
@@ -56,7 +56,7 @@ class EventCell: UITableViewCell {
         
         flagLabel.numberOfLines = 1
         flagLabel.font = UIFont.systemFont(ofSize: 10)
-        flagLabel.textColor = UIColor(rgba: Color.FontLightGray)
+        flagLabel.textColor = UIColor(rgba: Color.fontLightGray)
         flagLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(detailLabel.snp.bottom).offset(10)
             make.left.equalTo(detailLabel.snp.left)
@@ -66,7 +66,7 @@ class EventCell: UITableViewCell {
         
         timeLabel.numberOfLines = 1
         timeLabel.font = UIFont.systemFont(ofSize: 10)
-        timeLabel.textColor = UIColor(rgba: Color.FontLightGray)
+        timeLabel.textColor = UIColor(rgba: Color.fontLightGray)
         timeLabel.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(flagLabel.snp.bottom).offset(10)
             make.left.equalTo(flagLabel.snp.left)

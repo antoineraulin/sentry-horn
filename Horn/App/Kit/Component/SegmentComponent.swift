@@ -43,14 +43,14 @@ class SegmentComponent:BaseViewController {
             backgroundColor: UIColor.white,
             selectedBackgroundColor: UIColor.white,
             
-            textColor: UIColor(rgba: Color.FontGray),
+            textColor: UIColor(rgba: Color.fontGray),
             font: UIFont.systemFont(ofSize: 14),
             
-            selectedTextColor: UIColor(rgba: Color.FontBlack),
+            selectedTextColor: UIColor(rgba: Color.fontBlack),
             selectedFont: UIFont.systemFont(ofSize: 14),
             
-            bottomLineColor: UIColor(rgba: Color.LineGray),
-            selectorColor: UIColor(rgba:Color.Blue),
+            bottomLineColor: UIColor(rgba: Color.lineGray),
+            selectorColor: UIColor(rgba:Color.blue),
             
             bottomLineHeight: 0.5,
             selectorHeight: 1,

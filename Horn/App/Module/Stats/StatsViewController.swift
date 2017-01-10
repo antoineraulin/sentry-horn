@@ -14,7 +14,7 @@ class StatsViewController: BaseViewController,WebViewProtocol {
     var webView:WebViewComponent?
     
     override func initController() {
-        url = Constants.Web.Stats
+        url = Constants.Web.stats
     }
 
     override func viewWillAppear(_ animated: Bool) {

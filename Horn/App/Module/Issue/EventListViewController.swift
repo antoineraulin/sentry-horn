@@ -10,19 +10,19 @@ import UIKit
 
 class EventListViewController: BaseViewController {
     
-    var project_name = ""
-    var project_slug:String = ""
+    var projectName = ""
+    var projectSlug:String = ""
     var listComp:ListViewComponent?
     var viewModel:EventListViewModel?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = project_name
+        self.title = projectName
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = EventListViewModel(project_slug: self.project_slug)
+        viewModel = EventListViewModel(projectSlug: projectSlug)
         let adapter = EventListApdater(viewModel: viewModel!, context: self)
         listComp = ListViewComponent(adapter: adapter, viewModel: viewModel!)
         listComp!.view.frame = self.view.bounds

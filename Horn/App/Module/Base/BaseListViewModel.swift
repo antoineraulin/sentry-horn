@@ -18,43 +18,44 @@ enum FetchDataResult: Int {
 }
 
 class BaseListViewModel: NSObject {
-
-    var remoteUrl = ""
+    
     var message = ""
-    var params: [String:AnyObject]?
+    var api: GMNetWorkingAPI!
     var page = 1
     var cursor = ""
     var dataArray: Array<BaseObject> = Array<BaseObject>()
     var fetchDataResult = Observable(FetchDataResult.normal.rawValue)
-
+    
     func fetchRemoteData() {
-        self.buildRemoteUrl()
-        self.buildParams()
-        GMNetService.sharedInstance.startRequestWithUrlString(remoteUrl, params: params!, method: HttpMethod.httpMethodGet, success: {
-            response in
-            if (self.remoteUrl == "") {
-                self.fetchDataResult.value = FetchDataResult.failed.rawValue
-                return
-            }
-            if self.shouldClearDataForResponse(response) {
+        GMNetWorking.doRequest(buildAPI(), extraParameters: buildParamters(), success: { moyaResponse in
+            if self.shouldClearDataForResponse(moyaResponse) {
                 self.clearData()
             }
-            let headers = response.response?.allHeaderFields
-            self.parseLink(headers!)
-            
-            let json = JSON(response.result.value!)
-            self.buildData(json.rawString()!)
-            self.fetchDataResult.value = FetchDataResult.success.rawValue
+            if let headers = (moyaResponse.response as? HTTPURLResponse)?.allHeaderFields {
+                self.parseLink(headers)
+            }
+            do {
+                let data = try moyaResponse.mapString()
+                self.buildData(data)
+                self.fetchDataResult.value = FetchDataResult.success.rawValue
+            }
+            catch {
+                self.fetchDataResult.value = FetchDataResult.failed.rawValue
+            }
         }, failed: {
             errorMsg in
             self.fetchDataResult.value = FetchDataResult.failed.rawValue
         })
     }
-
-    func buildParams() {
-        self.params = ["cursor":cursor as AnyObject]
+    
+    func buildParamters() -> [String: Any] {
+        return ["cursor": cursor]
     }
-
+    
+    func buildAPI() -> GMNetWorkingAPI {
+        return api!
+    }
+    
     func handleHeaderRefreshing() {
         self.page = 1
         self.cursor = ""
@@ -65,21 +66,17 @@ class BaseListViewModel: NSObject {
         self.page = self.page + 1
         self.fetchRemoteData()
     }
-
-    func shouldClearDataForResponse(_ response: DataResponse<Any>) -> Bool {
+    
+    func shouldClearDataForResponse(_ response: Any) -> Bool {
         return self.page == 1;
     }
-
+    
     func clearData() {
         dataArray.removeAll()
     }
     
     func buildData(_ data: String) {
         fatalError("buildData need override by subclass")
-    }
-    
-    func buildRemoteUrl() {
-        fatalError("buildRemoteUrl need override by subclass")
     }
     
     /**

@@ -106,7 +106,7 @@ class ListViewComponent: BaseViewController, UITableViewDataSource, UITableViewD
     }
     
     fileprivate func addKVO() {
-        viewModel.fetchDataResult.afterChange += {
+        _ = viewModel.fetchDataResult.afterChange += {
             self.observeHandler($1)
         }
     }

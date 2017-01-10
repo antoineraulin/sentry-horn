@@ -7,21 +7,6 @@ import Foundation
 import UIKit
 import Alamofire
 
-/** @brief API Status */
-
-enum APIStatusCode: Int {
-    case apiStatusCodeSuccess = 0
-    case apiStatusCodeEmpty = 1
-    case apiStatusCodeFailed = 2
-};
-
-/** @brief Http Status */
-
-enum HttpStatusCode: Int {
-    case httpStatusCodeSuccess = 200
-    case httpStatusCodeError = 500
-    case httpStatusCodeUnauthorized = 401
-};
 
 /** @brief Http Method */
 
@@ -32,10 +17,6 @@ enum HttpMethod: Int {
     case httpMethodDelete
     case httpMethodPatch
 };
-
-/** @brief Http Response Result Block */
-typealias HttpSuccessBlock = (_ response:DataResponse<Any>) -> Void
-typealias HttpFailedBlock = (_ errorMsg:String) -> Void
 
 class GMNetService {
 
@@ -85,16 +66,16 @@ class GMNetService {
 
     func handleWithResponse(_ response: DataResponse<Any>, success: @escaping HttpSuccessBlock, failed: @escaping HttpFailedBlock) {
         DispatchQueue.main.async(execute: {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            let statusCode = response.response?.statusCode
-            if statusCode == HttpStatusCode.httpStatusCodeSuccess.rawValue {
-                success(response)
-            } else if statusCode == HttpStatusCode.httpStatusCodeUnauthorized.rawValue{
-                NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.Notification.LoginExpired), object: nil)
-            }
-            else {
-                failed("Request Data Error")
-            }
+//            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+//            let statusCode = response.response?.statusCode
+//            if statusCode == HttpStatusCode.httpStatusCodeSuccess.rawValue {
+//                success(response)
+//            } else if statusCode == HttpStatusCode.httpStatusCodeUnauthorized.rawValue{
+//                NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.Notification.LoginExpired), object: nil)
+//            }
+//            else {
+//                failed("Request Data Error")
+//            }
         })
     }
 }

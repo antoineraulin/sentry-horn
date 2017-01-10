@@ -13,23 +13,23 @@ class EventListViewModel: BaseListViewModel {
     var statsPeriod = "24h"
     var query = "is:unresolved"
     var limit = 25
-    var project_slug = ""
+    var projectSlug = ""
     
-    convenience init(project_slug:String) {
+    convenience init(projectSlug:String) {
         self.init()
-        self.project_slug = project_slug
+        self.projectSlug = projectSlug
     }
     
     override func buildData(_ data: String) {
         dataArray = dataArray + [IssueObject](json: data)
     }
     
-    override func buildParams() {
-        self.params = ["statsPeriod":statsPeriod as AnyObject,"query":query as AnyObject, "limit":limit as AnyObject, "cursor":cursor as AnyObject];
+    override func buildParamters() -> [String: Any] {
+        return ["statsPeriod":statsPeriod,"query":query, "limit":limit, "cursor":cursor]
     }
     
-    override func buildRemoteUrl() {
-        remoteUrl = String(format:Constants.API.Events, project_slug)
+    override func buildAPI() -> GMNetWorkingAPI {
+        return GMNetWorkingAPI.issues(projectSlug: projectSlug)
     }
     
     func titleAtIndexPath(_ indexPath: IndexPath) -> String {
@@ -57,13 +57,13 @@ class EventListViewModel: BaseListViewModel {
     func levelColorAtIndexPath(_ indexPath: IndexPath) -> String {
         let issue: IssueObject = dataArray[indexPath.row] as! IssueObject
         if issue.level == "error"{
-            return Color.LevelError
+            return Color.levelError
         }else if issue.level == "info"{
-            return Color.LevelInfo
+            return Color.levelInfo
         }else if issue.level == "warning"{
-            return Color.LevelWarning
+            return Color.levelWarning
         }else{
-            return Color.LevelDefault
+            return Color.levelDefault
         }
     }
     
