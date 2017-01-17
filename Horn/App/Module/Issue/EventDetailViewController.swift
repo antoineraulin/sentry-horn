@@ -8,10 +8,10 @@
 
 import UIKit
 
-class EventDetailViewController: BaseViewController,WebViewProtocol {
+class EventDetailViewController: BaseViewController, WebViewDelegate {
 
     var url:String = ""
-    var webView:WebViewComponent?
+    var webView:GMWebComponent?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -20,7 +20,7 @@ class EventDetailViewController: BaseViewController,WebViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView = WebViewComponent(adapter: self, url: self.url)
+        webView = GMWebComponent(delegate: self, path: self.url)
         webView!.view.frame = self.view.bounds
         self.addComponent(webView!)
     }

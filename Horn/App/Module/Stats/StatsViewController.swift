@@ -8,10 +8,10 @@
 
 import UIKit
 
-class StatsViewController: BaseViewController,WebViewProtocol {
+class StatsViewController: BaseViewController, WebViewDelegate {
     
     var url:String = ""
-    var webView:WebViewComponent?
+    var webView: GMWebComponent?
     
     override func initController() {
         url = Constants.Web.stats
@@ -24,7 +24,7 @@ class StatsViewController: BaseViewController,WebViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView = WebViewComponent(adapter: self, url: self.url)
+        webView = GMWebComponent(delegate: self, path: self.url)
         webView!.view.frame = self.view.bounds
         self.addComponent(webView!)
     }

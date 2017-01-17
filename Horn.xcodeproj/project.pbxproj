@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		9EF79B5448CDB38981C25E0B /* Pods_Horn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E45142FFEB771E95D598293 /* Pods_Horn.framework */; };
 		E40465891CAC10A20077BAE5 /* NSObject+FromClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40465881CAC10A20077BAE5 /* NSObject+FromClassName.swift */; };
+		E41BB9E51E2CF30C0069BCB5 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41BB9E31E2CF30C0069BCB5 /* Reveal.framework */; };
 		E4331CF81C8C4F86003AEAE9 /* OrganizationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */; };
 		E4331CFA1C8C6E06003AEAE9 /* IssueObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */; };
+		E43D20AD1E2E197D0062DE1A /* CookieSyncManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43D20AC1E2E197D0062DE1A /* CookieSyncManger.swift */; };
 		E444C2871C9FED2100E7ED14 /* BaseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C2851C9FED2100E7ED14 /* BaseListViewModel.swift */; };
 		E444C2881C9FED2100E7ED14 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C2861C9FED2100E7ED14 /* BaseViewController.swift */; };
 		E444C2901C9FEDC800E7ED14 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28B1C9FEDC800E7ED14 /* HRToast+UIView.swift */; };
 		E444C2911C9FEDC800E7ED14 /* ListViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */; };
 		E444C2921C9FEDC800E7ED14 /* SegmentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */; };
 		E444C2931C9FEDC800E7ED14 /* WebViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */; };
+		E44D31251E26372C000DE8F9 /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44D31241E26372C000DE8F9 /* AsyncUtil.swift */; };
 		E45A27671E1E003A00F3380F /* GMNetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45A27661E1E003A00F3380F /* GMNetWorking.swift */; };
 		E47F68AC1DA9078C008E41A6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A61DA9078C008E41A6 /* Alamofire.framework */; };
 		E47F68AD1DA9078C008E41A6 /* EVReflection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47F68A71DA9078C008E41A6 /* EVReflection.framework */; };
@@ -47,7 +50,6 @@
 		E4B1A4C61C8ACE06007228D5 /* HornTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4C51C8ACE06007228D5 /* HornTests.swift */; };
 		E4B1A4D11C8ACE06007228D5 /* HornUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4D01C8ACE06007228D5 /* HornUITests.swift */; };
 		E4B1A5211C8ACF82007228D5 /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */; };
-		E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4F81C8ACF82007228D5 /* GMNetService.swift */; };
 		E4B1A5271C8ACF82007228D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4FA1C8ACF82007228D5 /* Constants.swift */; };
 		E4B1A5281C8ACF82007228D5 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4FB1C8ACF82007228D5 /* LogUtil.swift */; };
 		E4B1A5291C8ACF82007228D5 /* SimulatorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B1A4FC1C8ACF82007228D5 /* SimulatorUtility.swift */; };
@@ -80,14 +82,18 @@
 		7E45142FFEB771E95D598293 /* Pods_Horn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Horn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97DDD3BF92566B0DAED6D3D3 /* Pods-Horn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Horn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Horn/Pods-Horn.debug.xcconfig"; sourceTree = "<group>"; };
 		E40465881CAC10A20077BAE5 /* NSObject+FromClassName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+FromClassName.swift"; sourceTree = "<group>"; };
+		E41BB9E21E2CF30C0069BCB5 /* libReveal.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libReveal.dylib; sourceTree = "<group>"; };
+		E41BB9E31E2CF30C0069BCB5 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		E4331CF71C8C4F86003AEAE9 /* OrganizationObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationObject.swift; sourceTree = "<group>"; };
 		E4331CF91C8C6E06003AEAE9 /* IssueObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueObject.swift; sourceTree = "<group>"; };
+		E43D20AC1E2E197D0062DE1A /* CookieSyncManger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CookieSyncManger.swift; sourceTree = "<group>"; };
 		E444C2851C9FED2100E7ED14 /* BaseListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseListViewModel.swift; sourceTree = "<group>"; };
 		E444C2861C9FED2100E7ED14 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E444C28B1C9FEDC800E7ED14 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HRToast+UIView.swift"; sourceTree = "<group>"; };
 		E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewComponent.swift; sourceTree = "<group>"; };
 		E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentComponent.swift; sourceTree = "<group>"; };
 		E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewComponent.swift; sourceTree = "<group>"; };
+		E44D31241E26372C000DE8F9 /* AsyncUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 		E45A27661E1E003A00F3380F /* GMNetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMNetWorking.swift; sourceTree = "<group>"; };
 		E47F68A61DA9078C008E41A6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		E47F68A71DA9078C008E41A6 /* EVReflection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EVReflection.framework; path = "../../../Library/Developer/Xcode/DerivedData/Horn-hgebbsadbuabhgcqqqpynhjntjhx/Build/Products/Debug-iphonesimulator/EVReflection/EVReflection.framework"; sourceTree = "<group>"; };
@@ -124,7 +130,6 @@
 		E4B1A4D01C8ACE06007228D5 /* HornUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HornUITests.swift; sourceTree = "<group>"; };
 		E4B1A4D21C8ACE06007228D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4B1A4F21C8ACF82007228D5 /* BaseObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
-		E4B1A4F81C8ACF82007228D5 /* GMNetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMNetService.swift; sourceTree = "<group>"; };
 		E4B1A4FA1C8ACF82007228D5 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4B1A4FB1C8ACF82007228D5 /* LogUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
 		E4B1A4FC1C8ACF82007228D5 /* SimulatorUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimulatorUtility.swift; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E41BB9E51E2CF30C0069BCB5 /* Reveal.framework in Frameworks */,
 				E47F68AC1DA9078C008E41A6 /* Alamofire.framework in Frameworks */,
 				E47F68AD1DA9078C008E41A6 /* EVReflection.framework in Frameworks */,
 				E47F68AE1DA9078C008E41A6 /* MJRefresh.framework in Frameworks */,
@@ -172,6 +178,8 @@
 		8DAD3E8A55946F9B8CBC552C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E41BB9E21E2CF30C0069BCB5 /* libReveal.dylib */,
+				E41BB9E31E2CF30C0069BCB5 /* Reveal.framework */,
 				E47F68A61DA9078C008E41A6 /* Alamofire.framework */,
 				E47F68A71DA9078C008E41A6 /* EVReflection.framework */,
 				E47F68A81DA9078C008E41A6 /* MJRefresh.framework */,
@@ -228,6 +236,7 @@
 				E444C28D1C9FEDC800E7ED14 /* ListViewComponent.swift */,
 				E444C28E1C9FEDC800E7ED14 /* SegmentComponent.swift */,
 				E444C28F1C9FEDC800E7ED14 /* WebViewComponent.swift */,
+				E43D20AC1E2E197D0062DE1A /* CookieSyncManger.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -385,7 +394,6 @@
 		E4B1A4F71C8ACF82007228D5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				E4B1A4F81C8ACF82007228D5 /* GMNetService.swift */,
 				E45A27661E1E003A00F3380F /* GMNetWorking.swift */,
 			);
 			path = Service;
@@ -394,6 +402,7 @@
 		E4B1A4F91C8ACF82007228D5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E44D31241E26372C000DE8F9 /* AsyncUtil.swift */,
 				E4B1A4FA1C8ACF82007228D5 /* Constants.swift */,
 				E4B1A4FB1C8ACF82007228D5 /* LogUtil.swift */,
 				E4B1A4FC1C8ACF82007228D5 /* SimulatorUtility.swift */,
@@ -469,7 +478,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Thierry;
 				TargetAttributes = {
 					E4B1A4B11C8ACE05007228D5 = {
@@ -586,9 +595,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4B1A5261C8ACF82007228D5 /* GMNetService.swift in Sources */,
 				E4961FC21C8EB4B80063FE86 /* ProjectListViewModel.swift in Sources */,
 				E4B1A52A1C8ACF82007228D5 /* UIColorExtension.swift in Sources */,
+				E43D20AD1E2E197D0062DE1A /* CookieSyncManger.swift in Sources */,
 				E4AF7DFB1CABC5C40000596C /* IssueViewModel.swift in Sources */,
 				E444C2881C9FED2100E7ED14 /* BaseViewController.swift in Sources */,
 				E4B1A5681C8AD6A7007228D5 /* TeamObject.swift in Sources */,
@@ -597,6 +606,7 @@
 				E4961FC11C8EB4B80063FE86 /* ProjectListViewController.swift in Sources */,
 				E4A5A71B1C8D9A510012D37A /* Helper.swift in Sources */,
 				E4961FB91C8EB4B80063FE86 /* LoginViewController.swift in Sources */,
+				E44D31251E26372C000DE8F9 /* AsyncUtil.swift in Sources */,
 				E4B1A5281C8ACF82007228D5 /* LogUtil.swift in Sources */,
 				E4961FBA1C8EB4B80063FE86 /* MainViewController.swift in Sources */,
 				E4961FC41C8EB4B80063FE86 /* StatsViewController.swift in Sources */,
@@ -672,8 +682,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -716,8 +728,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -736,6 +750,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -744,13 +759,45 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97DDD3BF92566B0DAED6D3D3 /* Pods-Horn.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Horn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"EVReflection\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"Observable\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"DEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.Horn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -762,13 +809,45 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 741E7B1F11F74B68ACACF491 /* Pods-Horn.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Horn/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"EVReflection\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"Observable\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-ObjC",
+					"-lz",
+					"-framework",
+					Reveal,
+				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-D\" \"RELEASE\"";
 				PRODUCT_BUNDLE_IDENTIFIER = Thierry.Horn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

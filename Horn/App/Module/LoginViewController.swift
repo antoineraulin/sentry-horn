@@ -9,11 +9,13 @@
 import UIKit
 import SnapKit
 import SwiftyJSON
+import WebKit
+import AwesomeCache
 
-class LoginViewController: BaseViewController, WebViewProtocol {
+class LoginViewController: BaseViewController {
     
-    var url:String = ""
-    var webView:WebViewComponent?
+    var url: String = ""
+    var webView: GMWebComponent?
     
     override func initController() {
         url = Constants.Web.login
@@ -21,9 +23,9 @@ class LoginViewController: BaseViewController, WebViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView = WebViewComponent(adapter: self, url: self.url)
-        webView!.view.frame = self.view.bounds
-        self.addComponent(webView!)
+        view.backgroundColor = UIColor.blue
+        webView = GMWebComponent(delegate: self, path: self.url)
+        addComponent(webView!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,19 +33,28 @@ class LoginViewController: BaseViewController, WebViewProtocol {
         self.title = "Login"
     }
     
-    func webView(_ webView: UIWebView, shouldStartLoadWithRequest request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        debugLog(request.url?.absoluteString)
-        if(request.url?.absoluteString == Constants.Web.organizationsRoot){
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+extension LoginViewController: WebViewDelegate {
+    
+    func handleLinkTap(url: String) -> Bool {
+        if(url == Constants.Web.organizationsRoot){
+            do {
+                let cache = try Cache<NSString>(name: "hornCache")
+                cache.setObject("success", forKey: "login", expires: .never)
+            } catch _ {
+                debugLog("Something went wrong :(")
+            }
             AppDelegate.shareInstance().showMainView()
             return false
         }else{
             return true
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }

@@ -27,14 +27,17 @@ struct Color {
 struct Constants {
     
     // Default Organization
-    static var currentOrganization = "sentry-sc"
+    static var currentOrganization = "sentry"
+//    static var currentOrganization = "sentry-sc"
     
     // Default Host
-    static let host = "https://sentry.io"
+//    static let host = "https://sentry.io"
+    static let host = "http://sentry.gengmei.cc"
     static let apiHost = "\(host)/api/0"
     static let webHost = "\(host)"
     
-    static let apiToken = "5b0c2c44939d4ea3b2f85a101d6495c8a085d2134eb542158235309606d0297e"
+//    static let apiToken = "5b0c2c44939d4ea3b2f85a101d6495c8a085d2134eb542158235309606d0297e"
+    static let apiToken = "5c2be9b4da404b3ab818f042f4bf3a3c2967a0819b6f4cbc9e91193bcead4f13"
     
     struct Web {
         static let root = host+"/"

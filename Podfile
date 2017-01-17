@@ -9,5 +9,6 @@ target 'Horn' do
     pod 'Observable-Swift'      , :git=>'https://github.com/Vaseltior/Observable-Swift'
     pod 'EVReflection'          , '~> 3.5.2'
     pod 'Moya'                  , '~> 8.0.0'
+    pod 'AwesomeCache'          , '~> 5.0'
 end
 

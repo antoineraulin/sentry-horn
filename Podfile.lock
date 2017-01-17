@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - AwesomeCache (5.0)
   - EVReflection (3.5.2)
   - MJRefresh (3.1.12)
   - Moya (8.0.0):
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.2.0)
+  - AwesomeCache (~> 5.0)
   - EVReflection (~> 3.5.2)
   - MJRefresh (~> 3.1.12)
   - Moya (~> 8.0.0)
@@ -32,6 +34,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AwesomeCache: d8906955242173357caa0be0214d5e77dec32cc5
   EVReflection: 3a9e1e41661ad7f0f86a4f5e5a6a7ef999c63819
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   Moya: 850a166ab8241bd1c1cea6dbe012e3a2ad62944a
@@ -40,6 +43,6 @@ SPEC CHECKSUMS:
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: a3d25dff8d0a02ef1b11fef79e6bb4cf4aee8543
+PODFILE CHECKSUM: 567b2e576490533d9d6a471f5be12ad511cf34ab
 
 COCOAPODS: 1.1.1

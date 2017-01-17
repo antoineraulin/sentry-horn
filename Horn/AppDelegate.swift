@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import WebKit
+import AwesomeCache
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.backgroundColor = UIColor.white
         self.window!.makeKeyAndVisible()
-        self.initNetWorking()
         self.checkLoginStatus()
         return true
     }
@@ -27,23 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
-    func initNetWorking() {
-        let service: GMNetService = GMNetService.sharedInstance
-        service.apiHost = Constants.host;
-    }
-    
     func checkLoginStatus(){
-        var cookieExpire = true
-        let cookies:[HTTPCookie] = HTTPCookieStorage.shared.cookies(for: URL(string: Constants.host)!)!
-        for cookie in cookies {
-            if cookie.name == "sentrysid" {
-                let result = cookie.expiresDate?.compare(Date())
-                if result == ComparisonResult.orderedDescending{
-                    cookieExpire = false
-                }
+        var loginExpire = true
+        do {
+            let cache = try Cache<NSString>(name: "hornCache")
+            let value = cache.object(forKey: "login")
+            if value == "success" {
+                loginExpire = false
             }
+        } catch _ {
+            debugLog("Something went wrong :(")
         }
-        if cookieExpire{
+        if loginExpire{
             self.showLoginView()
         }else{
             self.showMainView()
@@ -57,16 +53,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showLoginView(){
-        self.cleanCookie()
+        self.cleanLoginStatus()
         let login = LoginViewController()
         let navi = UINavigationController(rootViewController: login)
         self.window!.rootViewController = navi
     }
     
-    func cleanCookie(){
-        let cookies:[HTTPCookie] = HTTPCookieStorage.shared.cookies(for: URL(string: Constants.host)!)!
-        for cookie in cookies {
-            HTTPCookieStorage.shared.deleteCookie(cookie)
+    func cleanLoginStatus(){
+        do {
+            let cache = try Cache<NSString>(name: "hornCache")
+            cache.removeObject(forKey: "login")
+        } catch _ {
+            debugLog("Something went wrong :(")
         }
     }
     
